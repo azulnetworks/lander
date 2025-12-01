@@ -661,7 +661,7 @@
 </head>
 
 <body>
-  <!-- QUALIFIER 1 -->
+  <!-- QUALIFIER 1 - Country -->
   <div class="qualifier-modal active" id="q1">
     <div class="qualifier-content">
       <div class="logo-header">
@@ -677,6 +677,8 @@
       <div id="q1-content">
         <div class="qualifier-progress">
           <div class="progress-dot active"></div>
+          <div class="progress-dot"></div>
+          <div class="progress-dot"></div>
           <div class="progress-dot"></div>
         </div>
         <h3 class="qualifier-title">Aus welchem Land kommst du?</h3>
@@ -709,7 +711,7 @@
     </div>
   </div>
 
-  <!-- FINAL PAGE -->
+  <!-- QUALIFIER 2 - Time per day -->
   <div class="qualifier-modal" id="q2">
     <div class="qualifier-content">
       <div class="logo-header">
@@ -722,7 +724,99 @@
         </div>
       </div>
 
+      <div id="q2-content">
+        <div class="qualifier-progress">
+          <div class="progress-dot completed"></div>
+          <div class="progress-dot active"></div>
+          <div class="progress-dot"></div>
+          <div class="progress-dot"></div>
+        </div>
+        <h3 class="qualifier-title">Wie viel Zeit hast du täglich?</h3>
+        <p class="qualifier-subtitle">Je mehr Zeit, desto mehr kannst du verdienen 💰</p>
+        
+        <div class="qualifier-options">
+          <button class="qualifier-btn" onclick="answerQ2()">
+            <span class="qualifier-btn-icon">⏰</span>
+            <span>30 Min - 1 Stunde</span>
+          </button>
+          <button class="qualifier-btn" onclick="answerQ2()">
+            <span class="qualifier-btn-icon">⏰</span>
+            <span>1 - 2 Stunden</span>
+          </button>
+          <button class="qualifier-btn" onclick="answerQ2()">
+            <span class="qualifier-btn-icon">🔥</span>
+            <span>2+ Stunden</span>
+          </button>
+        </div>
+      </div>
+      <div id="q2-loading" style="display:none; text-align:center;">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">Berechne dein Verdienstpotenzial...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUALIFIER 3 - Start -->
+  <div class="qualifier-modal" id="q3">
+    <div class="qualifier-content">
+      <div class="logo-header">
+        <img src="https://i.imgur.com/d4rEH4U.png" alt="Freecash" class="logo">
+        <div class="trustpilot-badge">
+          <div class="trustpilot-logo">
+            <span class="trustpilot-star">★★★★★</span>
+          </div>
+          <span class="trustpilot-text"><strong>4.8</strong> auf Trustpilot</span>
+        </div>
+      </div>
+
+      <div id="q3-content">
+        <div class="qualifier-progress">
+          <div class="progress-dot completed"></div>
+          <div class="progress-dot completed"></div>
+          <div class="progress-dot active"></div>
+          <div class="progress-dot"></div>
+        </div>
+        <h3 class="qualifier-title">Wann kannst du starten?</h3>
+        <p class="qualifier-subtitle">Je früher du startest, desto schneller verdienst du</p>
+        
+        <div class="qualifier-options">
+          <button class="qualifier-btn" onclick="answerQ3()">
+            <span class="qualifier-btn-icon">⚡</span>
+            <span>Sofort</span>
+          </button>
+          <button class="qualifier-btn" onclick="answerQ3()">
+            <span class="qualifier-btn-icon">📅</span>
+            <span>Heute noch</span>
+          </button>
+          <button class="qualifier-btn" onclick="answerQ3()">
+            <span class="qualifier-btn-icon">🗓️</span>
+            <span>Diese Woche</span>
+          </button>
+        </div>
+      </div>
+      <div id="q3-loading" style="display:none; text-align:center;">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">Reserviere deinen Platz...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL PAGE -->
+  <div class="qualifier-modal" id="q4">
+    <div class="qualifier-content">
+      <div class="logo-header">
+        <img src="https://i.imgur.com/d4rEH4U.png" alt="Freecash" class="logo">
+        <div class="trustpilot-badge">
+          <div class="trustpilot-logo">
+            <span class="trustpilot-star">★★★★★</span>
+          </div>
+          <span class="trustpilot-text"><strong>4.8</strong> auf Trustpilot</span>
+        </div>
+      </div>
+
       <div class="qualifier-progress">
+        <div class="progress-dot completed"></div>
+        <div class="progress-dot completed"></div>
         <div class="progress-dot completed"></div>
         <div class="progress-dot active"></div>
       </div>
@@ -866,6 +960,40 @@
           document.getElementById('q1-content').style.display = 'block';
           document.getElementById('q1-loading').style.display = 'none';
         }, 1000);
+      };
+
+      // Make answerQ2 global
+      window.answerQ2 = function() {
+        if (typeof ttq !== 'undefined') {
+          ttq.track('AddToCart');
+        }
+        
+        document.getElementById('q2-content').style.display = 'none';
+        document.getElementById('q2-loading').style.display = 'block';
+        
+        setTimeout(function() {
+          document.getElementById('q2').classList.remove('active');
+          document.getElementById('q3').classList.add('active');
+          document.getElementById('q2-content').style.display = 'block';
+          document.getElementById('q2-loading').style.display = 'none';
+        }, 1000);
+      };
+
+      // Make answerQ3 global
+      window.answerQ3 = function() {
+        if (typeof ttq !== 'undefined') {
+          ttq.track('AddPaymentInfo');
+        }
+        
+        document.getElementById('q3-content').style.display = 'none';
+        document.getElementById('q3-loading').style.display = 'block';
+        
+        setTimeout(function() {
+          document.getElementById('q3').classList.remove('active');
+          document.getElementById('q4').classList.add('active');
+          document.getElementById('q3-content').style.display = 'block';
+          document.getElementById('q3-loading').style.display = 'none';
+        }, 1200);
       };
 
       // Final CTA click
