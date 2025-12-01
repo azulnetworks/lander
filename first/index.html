@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#0a0f14">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Freecash - Verdiene Belohnungen mit App-Tests</title>
+
+  <!-- Preconnect for faster loading -->
+  <link rel="preconnect" href="https://analytics.tiktok.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- TikTok Pixel Code Start -->
+  <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+      
+      ttq.load('D4KQB1BC77U7MI8ILR70');
+      ttq.page();
+    }(window, document, 'ttq');
+  </script>
+  <!-- TikTok Pixel Code End -->
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      border: none;
+      outline: none;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      background: #0a0f14;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0f14;
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    :root {
+      --green-primary: #00e685;
+      --green-dark: #00d87a;
+      --green-darker: #00c06f;
+      --dark: #0a0f14;
+      --dark-lighter: #141b22;
+      --gray: #8b95a3;
+      --white: #ffffff;
+      --red: #ff5757;
+      --yellow: #ffc107;
+      --trustpilot-green: #00b67a;
+    }
+
+    @keyframes slideInModal {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 10px 30px rgba(0, 230, 133, 0.4); }
+      50% { box-shadow: 0 15px 45px rgba(0, 230, 133, 0.6); }
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 5px 20px rgba(0, 230, 133, 0.3); }
+      50% { box-shadow: 0 5px 30px rgba(0, 230, 133, 0.5); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .notification {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-150px);
+      background: #141b22;
+      border: 1px solid rgba(0, 230, 133, 0.3);
+      border-radius: 15px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 100000;
+      max-width: 340px;
+      width: 90%;
+    }
+
+    .notification.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .notif-avatar {
+      width: 38px;
+      height: 38px;
+      background: #00e685;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #0a0f14;
+      flex-shrink: 0;
+      font-size: 14px;
+    }
+
+    .notif-content {
+      flex: 1;
+    }
+
+    .notif-text {
+      font-size: 13px;
+      line-height: 1.4;
+      color: #ffffff;
+    }
+
+    .notif-text strong {
+      color: #ffffff;
+    }
+
+    .notif-amount {
+      color: #00e685;
+      font-weight: 700;
+    }
+
+    .notif-task {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .notif-time {
+      font-size: 11px;
+      color: #8b95a3;
+      margin-top: 2px;
+    }
+
+    .qualifier-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      background: #0a0f14;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      z-index: 99999;
+      padding: 20px;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .qualifier-modal.active {
+      display: flex;
+    }
+
+    .qualifier-content {
+      background: #141b22;
+      border: 1px solid rgba(0, 230, 133, 0.2);
+      border-radius: 25px;
+      padding: 35px;
+      max-width: 480px;
+      width: 100%;
+      animation: slideInModal 0.4s ease;
+      margin: auto;
+    }
+
+    .logo-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 16px;
+      border: 2px solid #00e685;
+      animation: glow 3s ease-in-out infinite;
+      margin-bottom: 12px;
+    }
+
+    .trustpilot-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 182, 122, 0.1);
+      border: 1px solid rgba(0, 182, 122, 0.3);
+      border-radius: 20px;
+      padding: 6px 14px;
+      margin-bottom: 5px;
+    }
+
+    .trustpilot-logo {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .trustpilot-star {
+      color: #00b67a;
+      font-size: 12px;
+    }
+
+    .trustpilot-text {
+      font-size: 11px;
+      color: #8b95a3;
+    }
+
+    .trustpilot-text strong {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .qualifier-progress {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 25px;
+    }
+
+    .progress-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .progress-dot.active {
+      background: #00e685;
+      box-shadow: 0 0 10px rgba(0, 230, 133, 0.5);
+    }
+
+    .progress-dot.completed {
+      background: #00e685;
+    }
+
+    .qualifier-title {
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .qualifier-subtitle {
+      color: #8b95a3;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .qualifier-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .qualifier-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 18px;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .qualifier-btn span {
+      color: #ffffff;
+    }
+
+    .qualifier-btn:hover {
+      background: rgba(0, 230, 133, 0.1);
+      border-color: #00e685;
+      transform: translateX(5px);
+    }
+
+    .qualifier-btn.primary-btn {
+      background: linear-gradient(135deg, #00e685 0%, #00d87a 100%);
+      border: none;
+      color: #0a0f14;
+      font-size: 17px;
+      font-weight: 800;
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(0, 230, 133, 0.4);
+      animation: ctaPulse 2s ease-in-out infinite;
+      text-decoration: none;
+    }
+
+    .qualifier-btn.primary-btn span {
+      color: #0a0f14;
+    }
+
+    .qualifier-btn.primary-btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 15px 45px rgba(0, 230, 133, 0.6);
+    }
+
+    .qualifier-btn-icon {
+      font-size: 22px;
+    }
+
+    .loading-spinner {
+      width: 55px;
+      height: 55px;
+      border: 3px solid rgba(0, 230, 133, 0.2);
+      border-top: 3px solid #00e685;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 18px;
+    }
+
+    .success-message {
+      text-align: center;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .success-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #00e685;
+      margin-bottom: 12px;
+    }
+
+    .continue-btn {
+      background: #00e685;
+      color: #0a0f14;
+      padding: 20px 40px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      font-size: 17px;
+      margin-top: 18px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      min-height: 62px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      animation: ctaPulse 2s ease-in-out infinite;
+      text-decoration: none;
+    }
+
+    .continue-btn:hover {
+      background: #00d87a;
+      transform: scale(1.03);
+    }
+
+    .final-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 25px 0;
+      padding: 20px;
+      background: rgba(0, 230, 133, 0.05);
+      border: 1px solid rgba(0, 230, 133, 0.2);
+      border-radius: 15px;
+    }
+
+    .final-step {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .final-step:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .final-step:first-child {
+      padding-top: 0;
+    }
+
+    .final-step-number {
+      width: 32px;
+      height: 32px;
+      background: #00e685;
+      color: #0a0f14;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .final-step-content {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .final-step-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+
+    .final-step-desc {
+      font-size: 12px;
+      color: #8b95a3;
+    }
+
+    .loading-text {
+      color: #8b95a3;
+      font-size: 15px;
+      animation: fadeInOut 1.5s ease-in-out infinite;
+    }
+
+    .timer-urgency {
+      background: rgba(255, 87, 87, 0.1);
+      border: 1px solid rgba(255, 87, 87, 0.3);
+      border-radius: 10px;
+      padding: 12px 20px;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #8b95a3;
+    }
+
+    .avg-earnings-card {
+      background: linear-gradient(135deg, #141b22 0%, #1a2530 100%);
+      border: 1px solid rgba(0, 230, 133, 0.3);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avg-earnings-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #00e685, #00d87a, #00c06f);
+    }
+
+    .avg-earnings-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .avg-earnings-icon {
+      font-size: 16px;
+    }
+
+    .avg-earnings-label {
+      font-size: 13px;
+      color: #8b95a3;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .activity-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .activity-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .activity-avatar {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #00e685, #00c06f);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: #0a0f14;
+      flex-shrink: 0;
+    }
+
+    .activity-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .activity-task {
+      font-size: 12px;
+      color: #b0b8c4;
+      line-height: 1.4;
+    }
+
+    .activity-task strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .activity-reward {
+      font-size: 15px;
+      font-weight: 800;
+      color: #00e685;
+      white-space: nowrap;
+      text-shadow: 0 0 10px rgba(0, 230, 133, 0.3);
+    }
+
+    .avg-earnings-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 18px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 11px;
+      color: #8b95a3;
+    }
+
+    .avg-earnings-footer strong {
+      color: #ffffff;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #00e685;
+      border-radius: 50%;
+      animation: pulse 1.5s ease-in-out infinite;
+      box-shadow: 0 0 8px rgba(0, 230, 133, 0.6);
+    }
+
+    .timer-countdown {
+      color: #ff5757;
+      font-weight: 800;
+      font-size: 18px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .secure-text {
+      text-align: center;
+      font-size: 12px;
+      color: #8b95a3;
+      margin-top: 10px;
+    }
+
+    .age-disclaimer {
+      text-align: center;
+      font-size: 12px;
+      color: #ff9f43;
+      margin-top: 15px;
+      padding: 10px 15px;
+      background: rgba(255, 159, 67, 0.1);
+      border: 1px solid rgba(255, 159, 67, 0.3);
+      border-radius: 8px;
+    }
+
+    .user-count-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #8b95a3;
+      margin-top: 10px;
+    }
+
+    .user-count-badge .dot {
+      width: 8px;
+      height: 8px;
+      background: #ff4444;
+      border-radius: 50%;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    .user-count-badge strong {
+      color: #ffffff;
+    }
+
+    @media (max-width: 480px) {
+      .qualifier-content {
+        padding: 25px 20px;
+      }
+
+      .continue-btn {
+        font-size: 15px;
+        padding: 16px 30px;
+        min-height: 56px;
+      }
+
+      .logo {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- QUALIFIER 1 -->
+  <div class="qualifier-modal active" id="q1">
+    <div class="qualifier-content">
+      <div class="logo-header">
+        <img src="https://i.imgur.com/d4rEH4U.png" alt="Freecash" class="logo">
+        <div class="trustpilot-badge">
+          <div class="trustpilot-logo">
+            <span class="trustpilot-star">★★★★★</span>
+          </div>
+          <span class="trustpilot-text"><strong>4.8</strong> auf Trustpilot</span>
+        </div>
+      </div>
+
+      <div id="q1-content">
+        <div class="qualifier-progress">
+          <div class="progress-dot active"></div>
+          <div class="progress-dot"></div>
+        </div>
+        <h3 class="qualifier-title">Aus welchem Land kommst du?</h3>
+        <p class="qualifier-subtitle">Über 500.000 Nutzer verdienen bereits mit Freecash</p>
+        
+        <div class="qualifier-options">
+          <button class="qualifier-btn" onclick="answerQ1()">
+            <span class="qualifier-btn-icon">🇩🇪</span>
+            <span>Deutschland</span>
+          </button>
+          <button class="qualifier-btn" onclick="answerQ1()">
+            <span class="qualifier-btn-icon">🇨🇭</span>
+            <span>Schweiz</span>
+          </button>
+          <button class="qualifier-btn" onclick="answerQ1()">
+            <span class="qualifier-btn-icon">🇦🇹</span>
+            <span>Österreich</span>
+          </button>
+        </div>
+
+        <div class="user-count-badge">
+          <span class="dot"></span>
+          <span><strong id="liveUsers">847</strong> Nutzer sind gerade online</span>
+        </div>
+      </div>
+      <div id="q1-loading" style="display:none; text-align:center;">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">Prüfe Verfügbarkeit...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL PAGE -->
+  <div class="qualifier-modal" id="q2">
+    <div class="qualifier-content">
+      <div class="logo-header">
+        <img src="https://i.imgur.com/d4rEH4U.png" alt="Freecash" class="logo">
+        <div class="trustpilot-badge">
+          <div class="trustpilot-logo">
+            <span class="trustpilot-star">★★★★★</span>
+          </div>
+          <span class="trustpilot-text"><strong>4.8</strong> auf Trustpilot</span>
+        </div>
+      </div>
+
+      <div class="qualifier-progress">
+        <div class="progress-dot completed"></div>
+        <div class="progress-dot active"></div>
+      </div>
+      <div class="success-message">
+        <h3 class="success-title">Platz reserviert!</h3>
+
+        <div class="timer-urgency">
+          <span>Reservierung läuft ab in: </span>
+          <span class="timer-countdown" id="reserveTimer">4:59</span>
+        </div>
+        
+        <div class="final-steps">
+          <div class="final-step">
+            <div class="final-step-number">1</div>
+            <div class="final-step-content">
+              <span class="final-step-title">Kostenlos registrieren</span>
+              <span class="final-step-desc">30 Sekunden, keine Kreditkarte</span>
+            </div>
+          </div>
+          <div class="final-step">
+            <div class="final-step-number">2</div>
+            <div class="final-step-content">
+              <span class="final-step-title">Apps testen & Aufgaben erledigen</span>
+              <span class="final-step-desc">Spiele, Umfragen, Videos</span>
+            </div>
+          </div>
+          <div class="final-step">
+            <div class="final-step-number">3</div>
+            <div class="final-step-content">
+              <span class="final-step-title">Belohnungen auszahlen</span>
+              <span class="final-step-desc">PayPal, Banküberweisung, Gutscheine</span>
+            </div>
+          </div>
+        </div>
+        
+        <a href="https://start.tagesaufgaben.de/click" class="continue-btn" id="finalCta">KOSTENLOS REGISTRIEREN →</a>
+        
+        <p class="age-disclaimer">⚠️ Gib ein Alter von 21+ an, sonst wird die Auszahlung abgelehnt</p>
+        
+        <p class="secure-text">🔒 Sichere Verbindung · Keine versteckten Kosten</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTIFICATION -->
+  <div class="notification" id="notification">
+    <div class="notif-avatar">M</div>
+    <div class="notif-content">
+      <div class="notif-text">
+        <strong>Michael</strong> hat mit <span class="notif-task">Evony</span> <span class="notif-amount">112€</span> verdient
+      </div>
+      <div class="notif-time">vor 2 Minuten</div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // Fire ViewContent on page load
+      if (typeof ttq !== 'undefined') {
+        ttq.track('ViewContent');
+      }
+
+      // Live users counter
+      var liveUsers = 847;
+      function updateLiveUsers() {
+        var change = Math.floor(Math.random() * 7) - 3;
+        liveUsers = Math.max(780, Math.min(920, liveUsers + change));
+        var el = document.getElementById('liveUsers');
+        if (el) el.textContent = liveUsers;
+      }
+      setInterval(updateLiveUsers, 3000);
+
+      // Reservation timer
+      var reserveSeconds = 299;
+      function updateReserveTimer() {
+        var minutes = Math.floor(reserveSeconds / 60);
+        var seconds = reserveSeconds % 60;
+        var el = document.getElementById('reserveTimer');
+        if (el) {
+          el.textContent = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+          if (reserveSeconds <= 60) {
+            el.style.animation = 'pulse 0.5s ease-in-out infinite';
+          }
+        }
+        if (reserveSeconds > 0) reserveSeconds--;
+      }
+      setInterval(updateReserveTimer, 1000);
+
+      // Notifications
+      var notifications = [
+        { name: "Lisa M.", task: "Coin Master", amount: "87€", avatar: "L", time: "gerade eben" },
+        { name: "Max K.", task: "Royal Match", amount: "142€", avatar: "M", time: "vor 1 Min" },
+        { name: "Sarah B.", task: "Umfragen", amount: "73€", avatar: "S", time: "gerade eben" },
+        { name: "Tim H.", task: "Raid Shadow Legends", amount: "218€", avatar: "T", time: "vor 2 Min" },
+        { name: "Julia W.", task: "Cashback-Angebote", amount: "94€", avatar: "J", time: "gerade eben" },
+        { name: "Felix R.", task: "Monopoly GO", amount: "156€", avatar: "F", time: "vor 1 Min" },
+        { name: "Anna S.", task: "Whiteout Survival", amount: "189€", avatar: "A", time: "gerade eben" },
+        { name: "David K.", task: "Last War Survival", amount: "127€", avatar: "D", time: "vor 2 Min" },
+        { name: "Sophie L.", task: "Umfragen", amount: "71€", avatar: "S", time: "gerade eben" },
+        { name: "Michael B.", task: "Evony", amount: "203€", avatar: "M", time: "vor 1 Min" }
+      ];
+
+      var notifIndex = 0;
+
+      function showNotification() {
+        var notif = document.getElementById('notification');
+        var data = notifications[notifIndex];
+        
+        notif.querySelector('.notif-avatar').textContent = data.avatar;
+        notif.querySelector('strong').textContent = data.name;
+        notif.querySelector('.notif-task').textContent = data.task;
+        notif.querySelector('.notif-amount').textContent = data.amount;
+        notif.querySelector('.notif-time').textContent = data.time;
+        
+        notif.classList.add('show');
+        
+        setTimeout(function() {
+          notif.classList.remove('show');
+        }, 3000);
+        
+        notifIndex = (notifIndex + 1) % notifications.length;
+      }
+
+      setTimeout(function() {
+        showNotification();
+        setInterval(showNotification, 5000);
+      }, 1500);
+
+      // Make answerQ1 global
+      window.answerQ1 = function() {
+        if (typeof ttq !== 'undefined') {
+          ttq.track('ClickButton');
+        }
+        
+        document.getElementById('q1-content').style.display = 'none';
+        document.getElementById('q1-loading').style.display = 'block';
+        
+        setTimeout(function() {
+          document.getElementById('q1').classList.remove('active');
+          document.getElementById('q2').classList.add('active');
+          document.getElementById('q1-content').style.display = 'block';
+          document.getElementById('q1-loading').style.display = 'none';
+        }, 1000);
+      };
+
+      // Final CTA click
+      document.getElementById('finalCta').addEventListener('click', function() {
+        if (typeof ttq !== 'undefined') {
+          ttq.track('InitiateCheckout');
+          ttq.track('CompleteRegistration');
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>
