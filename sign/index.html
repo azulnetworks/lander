@@ -157,6 +157,11 @@
       font-weight: 700;
     }
 
+    .notif-task {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
     .notif-time {
       font-size: 11px;
       color: #8b95a3;
@@ -467,6 +472,128 @@
       color: #8b95a3;
     }
 
+    .avg-earnings-card {
+      background: linear-gradient(135deg, #141b22 0%, #1a2530 100%);
+      border: 1px solid rgba(0, 230, 133, 0.3);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avg-earnings-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #00e685, #00d87a, #00c06f);
+    }
+
+    .avg-earnings-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .avg-earnings-icon {
+      font-size: 16px;
+    }
+
+    .avg-earnings-label {
+      font-size: 13px;
+      color: #8b95a3;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .activity-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .activity-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .activity-avatar {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #00e685, #00c06f);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: #0a0f14;
+      flex-shrink: 0;
+    }
+
+    .activity-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .activity-task {
+      font-size: 12px;
+      color: #b0b8c4;
+      line-height: 1.4;
+    }
+
+    .activity-task strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .activity-reward {
+      font-size: 15px;
+      font-weight: 800;
+      color: #00e685;
+      white-space: nowrap;
+      text-shadow: 0 0 10px rgba(0, 230, 133, 0.3);
+    }
+
+    .avg-earnings-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 18px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 11px;
+      color: #8b95a3;
+    }
+
+    .avg-earnings-footer strong {
+      color: #ffffff;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #00e685;
+      border-radius: 50%;
+      animation: pulse 1.5s ease-in-out infinite;
+      box-shadow: 0 0 8px rgba(0, 230, 133, 0.6);
+    }
+
     .timer-countdown {
       color: #ff5757;
       font-weight: 800;
@@ -478,7 +605,18 @@
       text-align: center;
       font-size: 12px;
       color: #8b95a3;
+      margin-top: 10px;
+    }
+
+    .age-disclaimer {
+      text-align: center;
+      font-size: 12px;
+      color: #ff9f43;
       margin-top: 15px;
+      padding: 10px 15px;
+      background: rgba(255, 159, 67, 0.1);
+      border: 1px solid rgba(255, 159, 67, 0.3);
+      border-radius: 8px;
     }
 
     .user-count-badge {
@@ -622,6 +760,8 @@
         
         <a href="https://start.tagesaufgaben.de/click" class="continue-btn" id="finalCta">KOSTENLOS REGISTRIEREN →</a>
         
+        <p class="age-disclaimer">⚠️ Gib ein Alter von 21+ an, sonst wird die Auszahlung abgelehnt</p>
+        
         <p class="secure-text">🔒 Sichere Verbindung · Keine versteckten Kosten</p>
       </div>
     </div>
@@ -632,7 +772,7 @@
     <div class="notif-avatar">M</div>
     <div class="notif-content">
       <div class="notif-text">
-        <strong>Michael</strong> hat gerade <span class="notif-amount">164€</span> erhalten
+        <strong>Michael</strong> hat mit <span class="notif-task">Evony</span> <span class="notif-amount">112€</span> verdient
       </div>
       <div class="notif-time">vor 2 Minuten</div>
     </div>
@@ -673,16 +813,16 @@
 
       // Notifications
       var notifications = [
-        { name: "Sarah K.", amount: "67€", avatar: "S", time: "gerade eben" },
-        { name: "Michael B.", amount: "124€", avatar: "M", time: "vor 1 Min" },
-        { name: "Anna S.", amount: "89€", avatar: "A", time: "gerade eben" },
-        { name: "Tim H.", amount: "156€", avatar: "T", time: "vor 2 Min" },
-        { name: "Lisa M.", amount: "43€", avatar: "L", time: "gerade eben" },
-        { name: "Felix R.", amount: "201€", avatar: "F", time: "vor 1 Min" },
-        { name: "Julia W.", amount: "78€", avatar: "J", time: "gerade eben" },
-        { name: "Max P.", amount: "112€", avatar: "M", time: "vor 2 Min" },
-        { name: "Sophie L.", amount: "95€", avatar: "S", time: "gerade eben" },
-        { name: "David K.", amount: "167€", avatar: "D", time: "vor 1 Min" }
+        { name: "Lisa M.", task: "Coin Master", amount: "87€", avatar: "L", time: "gerade eben" },
+        { name: "Max K.", task: "Royal Match", amount: "142€", avatar: "M", time: "vor 1 Min" },
+        { name: "Sarah B.", task: "Umfragen", amount: "73€", avatar: "S", time: "gerade eben" },
+        { name: "Tim H.", task: "Raid Shadow Legends", amount: "218€", avatar: "T", time: "vor 2 Min" },
+        { name: "Julia W.", task: "Cashback-Angebote", amount: "94€", avatar: "J", time: "gerade eben" },
+        { name: "Felix R.", task: "Monopoly GO", amount: "156€", avatar: "F", time: "vor 1 Min" },
+        { name: "Anna S.", task: "Whiteout Survival", amount: "189€", avatar: "A", time: "gerade eben" },
+        { name: "David K.", task: "Last War Survival", amount: "127€", avatar: "D", time: "vor 2 Min" },
+        { name: "Sophie L.", task: "Umfragen", amount: "71€", avatar: "S", time: "gerade eben" },
+        { name: "Michael B.", task: "Evony", amount: "203€", avatar: "M", time: "vor 1 Min" }
       ];
 
       var notifIndex = 0;
@@ -693,6 +833,7 @@
         
         notif.querySelector('.notif-avatar').textContent = data.avatar;
         notif.querySelector('strong').textContent = data.name;
+        notif.querySelector('.notif-task').textContent = data.task;
         notif.querySelector('.notif-amount').textContent = data.amount;
         notif.querySelector('.notif-time').textContent = data.time;
         
