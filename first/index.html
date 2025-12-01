@@ -517,6 +517,16 @@
       animation: fadeInOut 1.5s ease-in-out infinite;
     }
 
+    .avg-earnings-card {
+      background: linear-gradient(135deg, #141b22 0%, #1a2530 100%);
+      border: 1px solid rgba(0, 230, 133, 0.3);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
     .timer-urgency {
       background: rgba(255, 87, 87, 0.1);
       border: 1px solid rgba(255, 87, 87, 0.3);
@@ -528,14 +538,16 @@
       color: #8b95a3;
     }
 
-    .avg-earnings-card {
-      background: linear-gradient(135deg, #141b22 0%, #1a2530 100%);
-      border: 1px solid rgba(0, 230, 133, 0.3);
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 20px;
-      position: relative;
-      overflow: hidden;
+    .timer-countdown {
+      color: #ff5757;
+      font-weight: 800;
+      font-size: 18px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .timer-expired {
+      color: #ff5757;
+      font-weight: 700;
     }
 
     .avg-earnings-card::before {
@@ -648,13 +660,6 @@
       border-radius: 50%;
       animation: pulse 1.5s ease-in-out infinite;
       box-shadow: 0 0 8px rgba(0, 230, 133, 0.6);
-    }
-
-    .timer-countdown {
-      color: #ff5757;
-      font-weight: 800;
-      font-size: 18px;
-      font-variant-numeric: tabular-nums;
     }
 
     .secure-text {
@@ -841,11 +846,11 @@
           <div class="bonus-requirement">Starte <span class="highlight">heute noch</span> & schließe deinen ersten App-Test ab</div>
         </div>
 
-        <p class="qualifier-subtitle" style="margin-bottom: 20px;">✓ Berechtigung bestätigt · ✓ Bonus aktiviert · ✓ Sofortige Auszahlung</p>
+        <p class="qualifier-subtitle" style="margin-bottom: 20px;">✓ Berechtigung bestätigt · ✓ Bonus aktiviert · ✓ Flexible Auszahlung</p>
 
         <div class="timer-urgency">
           <span>Reservierung läuft ab in: </span>
-          <span class="timer-countdown" id="reserveTimer">4:59</span>
+          <span class="timer-countdown" id="reserveTimer">5:00</span>
         </div>
         
         <div class="final-steps">
@@ -909,34 +914,66 @@
       }
       setInterval(updateLiveUsers, 3000);
 
-      // Reservation timer
-      var reserveSeconds = 299;
-      function updateReserveTimer() {
-        var minutes = Math.floor(reserveSeconds / 60);
-        var seconds = reserveSeconds % 60;
-        var el = document.getElementById('reserveTimer');
-        if (el) {
-          el.textContent = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
-          if (reserveSeconds <= 60) {
-            el.style.animation = 'pulse 0.5s ease-in-out infinite';
+      // Cookie-based reservation timer
+      function getCookie(name) {
+        var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        return match ? match[2] : null;
+      }
+
+      function setCookie(name, value, minutes) {
+        var date = new Date();
+        date.setTime(date.getTime() + (minutes * 60 * 1000));
+        document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+      }
+
+      function initTimer() {
+        var timerEl = document.getElementById('reserveTimer');
+        if (!timerEl) return;
+
+        var expiresAt = getCookie('fc_timer_expires');
+        
+        if (!expiresAt) {
+          // First visit - set 5 minute timer
+          expiresAt = Date.now() + (5 * 60 * 1000);
+          setCookie('fc_timer_expires', expiresAt, 10);
+        }
+
+        function updateTimer() {
+          var remaining = Math.max(0, expiresAt - Date.now());
+          
+          if (remaining <= 0) {
+            timerEl.textContent = '0:00';
+            timerEl.classList.add('timer-expired');
+            return;
+          }
+
+          var minutes = Math.floor(remaining / 60000);
+          var seconds = Math.floor((remaining % 60000) / 1000);
+          timerEl.textContent = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+
+          if (remaining <= 60000) {
+            timerEl.style.animation = 'pulse 0.5s ease-in-out infinite';
           }
         }
-        if (reserveSeconds > 0) reserveSeconds--;
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
       }
-      setInterval(updateReserveTimer, 1000);
+
+      initTimer();
 
       // Notifications
       var notifications = [
-        { name: "Lisa M.", task: "Coin Master", amount: "87€", avatar: "L", time: "gerade eben" },
-        { name: "Max K.", task: "Royal Match", amount: "142€", avatar: "M", time: "vor 1 Min" },
-        { name: "Sarah B.", task: "Umfragen", amount: "73€", avatar: "S", time: "gerade eben" },
-        { name: "Tim H.", task: "Raid Shadow Legends", amount: "218€", avatar: "T", time: "vor 2 Min" },
-        { name: "Julia W.", task: "Cashback-Angebote", amount: "94€", avatar: "J", time: "gerade eben" },
-        { name: "Felix R.", task: "Monopoly GO", amount: "156€", avatar: "F", time: "vor 1 Min" },
-        { name: "Anna S.", task: "Whiteout Survival", amount: "189€", avatar: "A", time: "gerade eben" },
-        { name: "David K.", task: "Last War Survival", amount: "127€", avatar: "D", time: "vor 2 Min" },
-        { name: "Sophie L.", task: "Umfragen", amount: "71€", avatar: "S", time: "gerade eben" },
-        { name: "Michael B.", task: "Evony", amount: "203€", avatar: "M", time: "vor 1 Min" }
+        { name: "Lisa M.", task: "Coin Master", amount: "47€", avatar: "L", time: "gerade eben" },
+        { name: "Max K.", task: "Royal Match", amount: "89€", avatar: "M", time: "vor 1 Min" },
+        { name: "Sarah B.", task: "Umfragen", amount: "32€", avatar: "S", time: "gerade eben" },
+        { name: "Tim H.", task: "Raid Shadow Legends", amount: "156€", avatar: "T", time: "vor 2 Min" },
+        { name: "Julia W.", task: "Cashback-Angebote", amount: "41€", avatar: "J", time: "gerade eben" },
+        { name: "Felix R.", task: "Monopoly GO", amount: "78€", avatar: "F", time: "vor 1 Min" },
+        { name: "Anna S.", task: "Whiteout Survival", amount: "134€", avatar: "A", time: "gerade eben" },
+        { name: "David K.", task: "Last War Survival", amount: "67€", avatar: "D", time: "vor 2 Min" },
+        { name: "Sophie L.", task: "Umfragen", amount: "38€", avatar: "S", time: "gerade eben" },
+        { name: "Michael B.", task: "Evony", amount: "112€", avatar: "M", time: "vor 1 Min" }
       ];
 
       var notifIndex = 0;
