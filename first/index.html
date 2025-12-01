@@ -347,6 +347,27 @@
       font-size: 22px;
     }
 
+    .under18-btn {
+      opacity: 0.6;
+    }
+
+    .under18-message {
+      display: none;
+      text-align: center;
+      padding: 12px 15px;
+      background: rgba(255, 87, 87, 0.1);
+      border: 1px solid rgba(255, 87, 87, 0.3);
+      border-radius: 10px;
+      margin-top: 15px;
+      font-size: 13px;
+      color: #ff5757;
+      font-weight: 500;
+    }
+
+    .under18-message.show {
+      display: block;
+    }
+
     .loading-spinner {
       width: 55px;
       height: 55px;
@@ -699,13 +720,9 @@
 
     .age-disclaimer {
       text-align: center;
-      font-size: 12px;
-      color: #ff9f43;
-      margin-top: 15px;
-      padding: 10px 15px;
-      background: rgba(255, 159, 67, 0.1);
-      border: 1px solid rgba(255, 159, 67, 0.3);
-      border-radius: 8px;
+      font-size: 11px;
+      color: #8b95a3;
+      margin-top: 12px;
     }
 
     .user-count-badge {
@@ -789,6 +806,14 @@
             <span class="qualifier-btn-icon">🎯</span>
             <span>35+</span>
           </button>
+          <button class="qualifier-btn under18-btn" onclick="showUnder18()">
+            <span class="qualifier-btn-icon">🚫</span>
+            <span>Unter 18</span>
+          </button>
+        </div>
+
+        <div class="under18-message" id="under18Msg">
+          <span>⚠️ Leider nur für Nutzer ab 18 Jahren verfügbar</span>
         </div>
 
         <div class="user-count-badge">
@@ -875,7 +900,7 @@
           <div class="bonus-requirement">Starte <span class="highlight">heute noch</span> & schließe deinen ersten App-Test ab</div>
         </div>
 
-        <p class="qualifier-subtitle" style="margin-bottom: 20px;">✓ Berechtigung bestätigt · ✓ Bonus aktiviert · ✓ Flexible Auszahlung</p>
+        <p class="qualifier-subtitle" style="margin-bottom: 20px;">✓ Bonus aktiviert · ✓ Flexible Auszahlung</p>
 
         <div class="timer-urgency">
           <span>Reservierung läuft ab in: </span>
@@ -1054,6 +1079,11 @@
           document.getElementById('q1-content').style.display = 'block';
           document.getElementById('q1-loading').style.display = 'none';
         }, 1000);
+      };
+
+      // Under 18 message
+      window.showUnder18 = function() {
+        document.getElementById('under18Msg').classList.add('show');
       };
 
       // Make answerQ2 global
