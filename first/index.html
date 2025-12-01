@@ -369,6 +369,48 @@
       margin-bottom: 12px;
     }
 
+    .earnings-unlocked {
+      background: linear-gradient(135deg, rgba(0, 230, 133, 0.15) 0%, rgba(0, 230, 133, 0.05) 100%);
+      border: 2px solid #00e685;
+      border-radius: 16px;
+      padding: 25px 20px;
+      margin: 20px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .earnings-unlocked::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 230, 133, 0.2), transparent);
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    .earnings-amount {
+      font-size: 48px;
+      font-weight: 900;
+      color: #00e685;
+      text-shadow: 0 0 30px rgba(0, 230, 133, 0.5);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .earnings-label {
+      font-size: 14px;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
     .continue-btn {
       background: #00e685;
       color: #0a0f14;
@@ -656,6 +698,10 @@
         width: 60px;
         height: 60px;
       }
+
+      .earnings-amount {
+        font-size: 40px;
+      }
     }
   </style>
 </head>
@@ -773,7 +819,14 @@
         <div class="progress-dot active"></div>
       </div>
       <div class="success-message">
-        <h3 class="success-title">Platz reserviert!</h3>
+        <h3 class="success-title">Du bist qualifiziert!</h3>
+        
+        <div class="earnings-unlocked">
+          <div class="earnings-amount">250€</div>
+          <div class="earnings-label">Willkommensbonus freigeschaltet!</div>
+        </div>
+
+        <p class="qualifier-subtitle" style="margin-bottom: 20px;">✓ Berechtigung bestätigt · ✓ Bonus aktiviert · ✓ Sofortige Auszahlung</p>
 
         <div class="timer-urgency">
           <span>Reservierung läuft ab in: </span>
