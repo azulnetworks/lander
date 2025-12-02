@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -7,7 +7,8 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="theme-color" content="#0a0f14">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Freecash - Verdiene Belohnungen mit App-Tests</title>
+  <meta name="robots" content="noindex">
+  <title>Freecash - Get Paid to Scroll</title>
 
   <!-- Preconnect for faster loading -->
   <link rel="preconnect" href="https://analytics.tiktok.com">
@@ -347,6 +348,27 @@
       font-size: 22px;
     }
 
+    .under18-btn {
+      opacity: 0.6;
+    }
+
+    .under18-message {
+      display: none;
+      text-align: center;
+      padding: 12px 15px;
+      background: rgba(255, 87, 87, 0.1);
+      border: 1px solid rgba(255, 87, 87, 0.3);
+      border-radius: 10px;
+      margin-top: 15px;
+      font-size: 13px;
+      color: #ff5757;
+      font-weight: 500;
+    }
+
+    .under18-message.show {
+      display: block;
+    }
+
     .loading-spinner {
       width: 55px;
       height: 55px;
@@ -367,6 +389,90 @@
       font-weight: 800;
       color: #00e685;
       margin-bottom: 12px;
+    }
+
+    .earnings-unlocked {
+      background: linear-gradient(135deg, rgba(0, 230, 133, 0.15) 0%, rgba(0, 230, 133, 0.05) 100%);
+      border: 2px solid #00e685;
+      border-radius: 16px;
+      padding: 25px 20px;
+      margin: 20px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .earnings-unlocked::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 230, 133, 0.2), transparent);
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    .earnings-label-top {
+      font-size: 14px;
+      color: #8b95a3;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .earnings-amount {
+      font-size: 48px;
+      font-weight: 900;
+      color: #00e685;
+      text-shadow: 0 0 30px rgba(0, 230, 133, 0.5);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .earnings-label {
+      font-size: 14px;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .bonus-requirement {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(0, 230, 133, 0.3);
+      font-size: 12px;
+      color: #8b95a3;
+      font-weight: 500;
+    }
+
+    .bonus-requirement .highlight {
+      color: #00e685;
+      font-weight: 700;
+    }
+
+    .social-proof-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-size: 12px;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .proof-divider {
+      color: #8b95a3;
     }
 
     .continue-btn {
@@ -472,133 +578,16 @@
       color: #8b95a3;
     }
 
-    .avg-earnings-card {
-      background: linear-gradient(135deg, #141b22 0%, #1a2530 100%);
-      border: 1px solid rgba(0, 230, 133, 0.3);
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 20px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .avg-earnings-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #00e685, #00d87a, #00c06f);
-    }
-
-    .avg-earnings-header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
-
-    .avg-earnings-icon {
-      font-size: 16px;
-    }
-
-    .avg-earnings-label {
-      font-size: 13px;
-      color: #8b95a3;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .activity-feed {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .activity-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px;
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .activity-avatar {
-      width: 36px;
-      height: 36px;
-      background: linear-gradient(135deg, #00e685, #00c06f);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 14px;
-      color: #0a0f14;
-      flex-shrink: 0;
-    }
-
-    .activity-content {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .activity-task {
-      font-size: 12px;
-      color: #b0b8c4;
-      line-height: 1.4;
-    }
-
-    .activity-task strong {
-      color: #ffffff;
-      font-weight: 600;
-    }
-
-    .activity-reward {
-      font-size: 15px;
-      font-weight: 800;
-      color: #00e685;
-      white-space: nowrap;
-      text-shadow: 0 0 10px rgba(0, 230, 133, 0.3);
-    }
-
-    .avg-earnings-footer {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 18px;
-      padding-top: 15px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      font-size: 11px;
-      color: #8b95a3;
-    }
-
-    .avg-earnings-footer strong {
-      color: #ffffff;
-    }
-
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
-      background: #00e685;
-      border-radius: 50%;
-      animation: pulse 1.5s ease-in-out infinite;
-      box-shadow: 0 0 8px rgba(0, 230, 133, 0.6);
-    }
-
     .timer-countdown {
       color: #ff5757;
       font-weight: 800;
       font-size: 18px;
       font-variant-numeric: tabular-nums;
+    }
+
+    .timer-expired {
+      color: #ff5757;
+      font-weight: 700;
     }
 
     .secure-text {
@@ -610,13 +599,9 @@
 
     .age-disclaimer {
       text-align: center;
-      font-size: 12px;
-      color: #ff9f43;
-      margin-top: 15px;
-      padding: 10px 15px;
-      background: rgba(255, 159, 67, 0.1);
-      border: 1px solid rgba(255, 159, 67, 0.3);
-      border-radius: 8px;
+      font-size: 11px;
+      color: #8b95a3;
+      margin-top: 12px;
     }
 
     .user-count-badge {
@@ -656,12 +641,16 @@
         width: 60px;
         height: 60px;
       }
+
+      .earnings-amount {
+        font-size: 40px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <!-- QUALIFIER 1 - Country -->
+  <!-- QUALIFIER 1 - Age -->
   <div class="qualifier-modal active" id="q1">
     <div class="qualifier-content">
       <div class="logo-header">
@@ -670,7 +659,7 @@
           <div class="trustpilot-logo">
             <span class="trustpilot-star">★★★★★</span>
           </div>
-          <span class="trustpilot-text"><strong>4.8</strong> auf Trustpilot</span>
+          <span class="trustpilot-text"><strong>4.8</strong> on Trustpilot</span>
         </div>
       </div>
 
@@ -680,37 +669,45 @@
           <div class="progress-dot"></div>
           <div class="progress-dot"></div>
         </div>
-        <h3 class="qualifier-title">Aus welchem Land kommst du?</h3>
-        <p class="qualifier-subtitle">Über 500.000 Nutzer verdienen bereits mit Freecash</p>
+        <h3 class="qualifier-title">How old are you?</h3>
+        <p class="qualifier-subtitle">500,000+ people are already getting paid to scroll</p>
         
         <div class="qualifier-options">
           <button class="qualifier-btn" onclick="answerQ1()">
-            <span class="qualifier-btn-icon">🇩🇪</span>
-            <span>Deutschland</span>
+            <span class="qualifier-btn-icon">🎯</span>
+            <span>18 - 24</span>
           </button>
           <button class="qualifier-btn" onclick="answerQ1()">
-            <span class="qualifier-btn-icon">🇨🇭</span>
-            <span>Schweiz</span>
+            <span class="qualifier-btn-icon">🎯</span>
+            <span>25 - 34</span>
           </button>
           <button class="qualifier-btn" onclick="answerQ1()">
-            <span class="qualifier-btn-icon">🇦🇹</span>
-            <span>Österreich</span>
+            <span class="qualifier-btn-icon">🎯</span>
+            <span>35+</span>
           </button>
+          <button class="qualifier-btn under18-btn" onclick="showUnder18()">
+            <span class="qualifier-btn-icon">🚫</span>
+            <span>Under 18</span>
+          </button>
+        </div>
+
+        <div class="under18-message" id="under18Msg">
+          <span>⚠️ Sorry, only available for users 18 and older</span>
         </div>
 
         <div class="user-count-badge">
           <span class="dot"></span>
-          <span><strong id="liveUsers">847</strong> Nutzer sind gerade online</span>
+          <span><strong id="liveUsers">847</strong> people online right now</span>
         </div>
       </div>
       <div id="q1-loading" style="display:none; text-align:center;">
         <div class="loading-spinner"></div>
-        <p class="loading-text">Prüfe Verfügbarkeit...</p>
+        <p class="loading-text">Checking availability...</p>
       </div>
     </div>
   </div>
 
-  <!-- QUALIFIER 2 - Time per day -->
+  <!-- QUALIFIER 2 - Time on TikTok -->
   <div class="qualifier-modal" id="q2">
     <div class="qualifier-content">
       <div class="logo-header">
@@ -719,7 +716,7 @@
           <div class="trustpilot-logo">
             <span class="trustpilot-star">★★★★★</span>
           </div>
-          <span class="trustpilot-text"><strong>4.8</strong> auf Trustpilot</span>
+          <span class="trustpilot-text"><strong>4.8</strong> on Trustpilot</span>
         </div>
       </div>
 
@@ -729,27 +726,27 @@
           <div class="progress-dot active"></div>
           <div class="progress-dot"></div>
         </div>
-        <h3 class="qualifier-title">Wie viel Zeit hast du täglich?</h3>
-        <p class="qualifier-subtitle">Je mehr Zeit, desto mehr kannst du verdienen 💰</p>
+        <h3 class="qualifier-title">How much time do you spend scrolling daily?</h3>
+        <p class="qualifier-subtitle">The more you scroll, the more you can earn 💰</p>
         
         <div class="qualifier-options">
           <button class="qualifier-btn" onclick="answerQ2()">
-            <span class="qualifier-btn-icon">⏰</span>
-            <span>30 Min - 1 Stunde</span>
+            <span class="qualifier-btn-icon">📱</span>
+            <span>30 min - 1 hour</span>
           </button>
           <button class="qualifier-btn" onclick="answerQ2()">
-            <span class="qualifier-btn-icon">⏰</span>
-            <span>1 - 2 Stunden</span>
+            <span class="qualifier-btn-icon">📱</span>
+            <span>1 - 2 hours</span>
           </button>
           <button class="qualifier-btn" onclick="answerQ2()">
             <span class="qualifier-btn-icon">🔥</span>
-            <span>2+ Stunden</span>
+            <span>2+ hours</span>
           </button>
         </div>
       </div>
       <div id="q2-loading" style="display:none; text-align:center;">
         <div class="loading-spinner"></div>
-        <p class="loading-text">Berechne dein Verdienstpotenzial...</p>
+        <p class="loading-text">Calculating your earning potential...</p>
       </div>
     </div>
   </div>
@@ -763,7 +760,7 @@
           <div class="trustpilot-logo">
             <span class="trustpilot-star">★★★★★</span>
           </div>
-          <span class="trustpilot-text"><strong>4.8</strong> auf Trustpilot</span>
+          <span class="trustpilot-text"><strong>4.8</strong> on Trustpilot</span>
         </div>
       </div>
 
@@ -773,42 +770,59 @@
         <div class="progress-dot active"></div>
       </div>
       <div class="success-message">
-        <h3 class="success-title">Platz reserviert!</h3>
+        <h3 class="success-title">You're qualified!</h3>
+        
+        <div class="earnings-unlocked">
+          <div class="earnings-label-top">Up to</div>
+          <div class="earnings-amount">$250</div>
+          <div class="earnings-label">Welcome Bonus Unlocked!</div>
+          <div class="bonus-requirement">Start <span class="highlight">today</span> & complete your first task to claim</div>
+        </div>
+
+        <p class="qualifier-subtitle" style="margin-bottom: 20px;">✓ Bonus activated · ✓ Flexible cashout</p>
 
         <div class="timer-urgency">
-          <span>Reservierung läuft ab in: </span>
-          <span class="timer-countdown" id="reserveTimer">4:59</span>
+          <span>Spot reserved for: </span>
+          <span class="timer-countdown" id="reserveTimer">5:00</span>
         </div>
         
         <div class="final-steps">
           <div class="final-step">
             <div class="final-step-number">1</div>
             <div class="final-step-content">
-              <span class="final-step-title">Kostenlos registrieren</span>
-              <span class="final-step-desc">30 Sekunden, keine Kreditkarte</span>
+              <span class="final-step-title">Sign up for free</span>
+              <span class="final-step-desc">30 seconds, no credit card</span>
             </div>
           </div>
           <div class="final-step">
             <div class="final-step-number">2</div>
             <div class="final-step-content">
-              <span class="final-step-title">Apps testen & Aufgaben erledigen</span>
-              <span class="final-step-desc">Spiele, Umfragen, Videos</span>
+              <span class="final-step-title">Watch videos & complete simple tasks</span>
+              <span class="final-step-desc">Do it while you scroll TikTok</span>
             </div>
           </div>
           <div class="final-step">
             <div class="final-step-number">3</div>
             <div class="final-step-content">
-              <span class="final-step-title">Belohnungen auszahlen</span>
-              <span class="final-step-desc">PayPal, Banküberweisung, Gutscheine</span>
+              <span class="final-step-title">Cash out your rewards</span>
+              <span class="final-step-desc">PayPal, CashApp, wire transfer, gift cards</span>
             </div>
           </div>
         </div>
+
+        <div class="social-proof-bar">
+          <span>⭐ 4.8 Trustpilot</span>
+          <span class="proof-divider">·</span>
+          <span>👥 500k+ Users</span>
+          <span class="proof-divider">·</span>
+          <span>💸 $15M+ Paid Out</span>
+        </div>
         
-        <a href="https://start.tagesaufgaben.de/click" class="continue-btn" id="finalCta">KOSTENLOS REGISTRIEREN →</a>
+        <a href="https://glitchy.go2cloud.org/aff_c?offer_id=3531&aff_id=9155&url_id=186&source=marcel" class="continue-btn" id="finalCta">GET STARTED FREE →</a>
         
-        <p class="age-disclaimer">⚠️ Gib ein Alter von 21+ an, sonst wird die Auszahlung abgelehnt</p>
+        <p class="age-disclaimer">⚠️ Must enter age 21+ or cashout will be declined</p>
         
-        <p class="secure-text">🔒 Sichere Verbindung · Keine versteckten Kosten</p>
+        <p class="secure-text">🔒 Secure connection · No hidden fees</p>
       </div>
     </div>
   </div>
@@ -818,9 +832,9 @@
     <div class="notif-avatar">M</div>
     <div class="notif-content">
       <div class="notif-text">
-        <strong>Michael</strong> hat mit <span class="notif-task">Evony</span> <span class="notif-amount">112€</span> verdient
+        <strong>Mike</strong> earned <span class="notif-amount">$47</span> <span class="notif-task">while scrolling</span>
       </div>
-      <div class="notif-time">vor 2 Minuten</div>
+      <div class="notif-time">just now</div>
     </div>
   </div>
 
@@ -841,34 +855,66 @@
       }
       setInterval(updateLiveUsers, 3000);
 
-      // Reservation timer
-      var reserveSeconds = 299;
-      function updateReserveTimer() {
-        var minutes = Math.floor(reserveSeconds / 60);
-        var seconds = reserveSeconds % 60;
-        var el = document.getElementById('reserveTimer');
-        if (el) {
-          el.textContent = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
-          if (reserveSeconds <= 60) {
-            el.style.animation = 'pulse 0.5s ease-in-out infinite';
+      // Cookie-based reservation timer
+      function getCookie(name) {
+        var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        return match ? match[2] : null;
+      }
+
+      function setCookie(name, value, minutes) {
+        var date = new Date();
+        date.setTime(date.getTime() + (minutes * 60 * 1000));
+        document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+      }
+
+      function initTimer() {
+        var timerEl = document.getElementById('reserveTimer');
+        if (!timerEl) return;
+
+        var expiresAt = getCookie('fc_timer_expires');
+        
+        if (!expiresAt) {
+          // First visit - set 5 minute timer
+          expiresAt = Date.now() + (5 * 60 * 1000);
+          setCookie('fc_timer_expires', expiresAt, 10);
+        }
+
+        function updateTimer() {
+          var remaining = Math.max(0, expiresAt - Date.now());
+          
+          if (remaining <= 0) {
+            timerEl.textContent = '0:00';
+            timerEl.classList.add('timer-expired');
+            return;
+          }
+
+          var minutes = Math.floor(remaining / 60000);
+          var seconds = Math.floor((remaining % 60000) / 1000);
+          timerEl.textContent = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+
+          if (remaining <= 60000) {
+            timerEl.style.animation = 'pulse 0.5s ease-in-out infinite';
           }
         }
-        if (reserveSeconds > 0) reserveSeconds--;
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
       }
-      setInterval(updateReserveTimer, 1000);
+
+      initTimer();
 
       // Notifications
       var notifications = [
-        { name: "Lisa M.", task: "Coin Master", amount: "87€", avatar: "L", time: "gerade eben" },
-        { name: "Max K.", task: "Royal Match", amount: "142€", avatar: "M", time: "vor 1 Min" },
-        { name: "Sarah B.", task: "Umfragen", amount: "73€", avatar: "S", time: "gerade eben" },
-        { name: "Tim H.", task: "Raid Shadow Legends", amount: "218€", avatar: "T", time: "vor 2 Min" },
-        { name: "Julia W.", task: "Cashback-Angebote", amount: "94€", avatar: "J", time: "gerade eben" },
-        { name: "Felix R.", task: "Monopoly GO", amount: "156€", avatar: "F", time: "vor 1 Min" },
-        { name: "Anna S.", task: "Whiteout Survival", amount: "189€", avatar: "A", time: "gerade eben" },
-        { name: "David K.", task: "Last War Survival", amount: "127€", avatar: "D", time: "vor 2 Min" },
-        { name: "Sophie L.", task: "Umfragen", amount: "71€", avatar: "S", time: "gerade eben" },
-        { name: "Michael B.", task: "Evony", amount: "203€", avatar: "M", time: "vor 1 Min" }
+        { name: "Sarah", task: "while scrolling", amount: "$38", avatar: "S", time: "just now" },
+        { name: "Mike", task: "watching videos", amount: "$67", avatar: "M", time: "1 min ago" },
+        { name: "Jessica", task: "in her free time", amount: "$42", avatar: "J", time: "just now" },
+        { name: "Tyler", task: "while scrolling", amount: "$156", avatar: "T", time: "2 min ago" },
+        { name: "Ashley", task: "on her phone", amount: "$53", avatar: "A", time: "just now" },
+        { name: "Brandon", task: "between TikToks", amount: "$89", avatar: "B", time: "1 min ago" },
+        { name: "Emily", task: "while scrolling", amount: "$71", avatar: "E", time: "just now" },
+        { name: "David", task: "in 2 hours", amount: "$124", avatar: "D", time: "2 min ago" },
+        { name: "Megan", task: "watching videos", amount: "$45", avatar: "M", time: "just now" },
+        { name: "Chris", task: "while scrolling", amount: "$93", avatar: "C", time: "1 min ago" }
       ];
 
       var notifIndex = 0;
@@ -912,6 +958,11 @@
           document.getElementById('q1-content').style.display = 'block';
           document.getElementById('q1-loading').style.display = 'none';
         }, 1000);
+      };
+
+      // Under 18 message
+      window.showUnder18 = function() {
+        document.getElementById('under18Msg').classList.add('show');
       };
 
       // Make answerQ2 global
