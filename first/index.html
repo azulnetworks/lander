@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#0a0f14">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="robots" content="noindex">
-  <title>Freecash - Verdiene beim Scrollen</title>
+  <title>Freecash - Belohnungs-App</title>
 
   <!-- Preconnect for faster loading -->
   <link rel="preconnect" href="https://analytics.tiktok.com">
@@ -650,7 +650,7 @@
 </head>
 
 <body>
-  <!-- QUALIFIER 1 - Age -->
+  <!-- QUALIFIER 1 - TikTok Compliant -->
   <div class="qualifier-modal active" id="q1">
     <div class="qualifier-content">
       <div class="logo-header">
@@ -670,7 +670,7 @@
           <div class="progress-dot"></div>
         </div>
         <h3 class="qualifier-title">Wie alt bist du?</h3>
-        <p class="qualifier-subtitle">Über 500.000 Nutzer verdienen bereits beim Scrollen</p>
+        <p class="qualifier-subtitle">Über 500.000 aktive Nutzer weltweit</p>
         
         <div class="qualifier-options">
           <button class="qualifier-btn" onclick="answerQ1()">
@@ -770,16 +770,16 @@
         <div class="progress-dot active"></div>
       </div>
       <div class="success-message">
-        <h3 class="success-title">Du bist qualifiziert!</h3>
+        <h3 class="success-title">Registrierung verfügbar!</h3>
         
         <div class="earnings-unlocked">
-          <div class="earnings-label-top">Bis zu</div>
-          <div class="earnings-amount">250€</div>
-          <div class="earnings-label">Willkommensbonus freigeschaltet!</div>
-          <div class="bonus-requirement">Starte <span class="highlight">heute noch</span> & schließe deine erste Aufgabe ab</div>
+          <div class="earnings-label-top">Willkommensbonus</div>
+          <div class="earnings-amount">Verfügbar</div>
+          <div class="earnings-label">Für neue Nutzer</div>
+          <div class="bonus-requirement">Registriere dich <span class="highlight">heute noch</span> & schließe deine erste Aufgabe ab</div>
         </div>
 
-        <p class="qualifier-subtitle" style="margin-bottom: 20px;">✓ Bonus aktiviert · ✓ Flexible Auszahlung</p>
+        <p class="qualifier-subtitle" style="margin-bottom: 20px;">✓ Für neue Nutzer · ✓ Flexible Auszahlungsoptionen</p>
 
         <div class="timer-urgency">
           <span>Reservierung läuft ab in: </span>
@@ -790,22 +790,22 @@
           <div class="final-step">
             <div class="final-step-number">1</div>
             <div class="final-step-content">
-              <span class="final-step-title">Registrieren und verdienen</span>
-              <span class="final-step-desc">Melde dich kostenlos bei Freecash an und erhalte bis zu 250€ Bonus direkt auf dein Konto</span>
+              <span class="final-step-title">Kostenlos registrieren</span>
+              <span class="final-step-desc">Melde dich kostenlos bei Freecash an - keine Kreditkarte erforderlich</span>
             </div>
           </div>
           <div class="final-step">
             <div class="final-step-number">2</div>
             <div class="final-step-content">
-              <span class="final-step-title">TikTok auf Freecash finden</span>
-              <span class="final-step-desc">Finde unsere TikTok-Video-Aufgaben und streame sofort für Belohnungen</span>
+              <span class="final-step-title">Aufgaben erledigen</span>
+              <span class="final-step-desc">Wähle aus verschiedenen Aufgaben und Angeboten</span>
             </div>
           </div>
           <div class="final-step">
             <div class="final-step-number">3</div>
             <div class="final-step-content">
-              <span class="final-step-title">Auszahlung deiner Einnahmen</span>
-              <span class="final-step-desc">Wähle deine Auszahlungsmethode, von PayPal bis zu Banküberweisung</span>
+              <span class="final-step-title">Belohnungen erhalten</span>
+              <span class="final-step-desc">Wähle deine Auszahlungsmethode: PayPal, Banküberweisung, Gutscheine</span>
             </div>
           </div>
         </div>
@@ -815,10 +815,10 @@
           <span class="proof-divider">·</span>
           <span>👥 500.000+ Nutzer</span>
           <span class="proof-divider">·</span>
-          <span>💸 12M€ ausgezahlt</span>
+          <span>🌍 Weltweit verfügbar</span>
         </div>
         
-        <a href="https://glitchy.go2cloud.org/aff_c?offer_id=3531&aff_id=9155&url_id=186&source=descroll" class="continue-btn" id="finalCta">KOSTENLOS STARTEN →</a>
+        <a href="https://glitchy.go2cloud.org/aff_c?offer_id=3531&aff_id=9155&url_id=186&source=newscroll" class="continue-btn" id="finalCta">KOSTENLOS STARTEN →</a>
         
         <p class="age-disclaimer">⚠️ Gib ein Alter von 21+ an, sonst wird die Auszahlung abgelehnt</p>
         
@@ -918,8 +918,12 @@
       ];
 
       var notifIndex = 0;
+      var notificationsStarted = false;
 
       function showNotification() {
+        // Only show notifications if we're past Q1
+        if (!notificationsStarted) return;
+        
         var notif = document.getElementById('notification');
         var data = notifications[notifIndex];
         
@@ -938,6 +942,7 @@
         notifIndex = (notifIndex + 1) % notifications.length;
       }
 
+      // Start notification loop (but won't show until notificationsStarted is true)
       setTimeout(function() {
         showNotification();
         setInterval(showNotification, 5000);
@@ -957,6 +962,9 @@
           document.getElementById('q2').classList.add('active');
           document.getElementById('q1-content').style.display = 'block';
           document.getElementById('q1-loading').style.display = 'none';
+          
+          // Enable notifications starting from Q2
+          notificationsStarted = true;
         }, 1000);
       };
 
