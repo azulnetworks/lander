@@ -489,6 +489,148 @@
     .milestone.gold .milestone-label { color: #ffd700; }
     .milestone.premium .milestone-label { color: #a855f7; }
 
+    /* Steps Guide */
+    .steps-guide {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 20px 0;
+      background: rgba(0, 230, 133, 0.03);
+      border: 1px solid rgba(0, 230, 133, 0.15);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .step-item:last-child {
+      border-bottom: none;
+    }
+
+    .step-item.premium-step {
+      background: rgba(168, 85, 247, 0.1);
+      border-bottom: none;
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      background: #00e685;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 800;
+      color: #0a0f14;
+      flex-shrink: 0;
+    }
+
+    .step-number.premium {
+      background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+      color: #ffffff;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+
+    .step-title.premium {
+      color: #a855f7;
+    }
+
+    .step-desc {
+      font-size: 12px;
+      color: #8b95a3;
+      line-height: 1.4;
+    }
+
+    /* TikTok Unlock Box (Purple) */
+    .tiktok-unlock-box {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(124, 58, 237, 0.08) 100%);
+      border: 2px solid rgba(168, 85, 247, 0.5);
+      border-radius: 16px;
+      padding: 24px 20px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .tiktok-unlock-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .tiktok-unlock-icon {
+      font-size: 22px;
+    }
+
+    .tiktok-unlock-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #a855f7;
+    }
+
+    .tiktok-unlock-text {
+      font-size: 14px;
+      color: #ffffff;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .tiktok-unlock-text strong {
+      color: #ffffff;
+    }
+
+    .tiktok-unlock-subtext {
+      font-size: 13px;
+      color: #8b95a3;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .tiktok-unlock-subtext strong {
+      color: #a855f7;
+    }
+
+    .task-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .task-icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .task-icon-emoji {
+      font-size: 32px;
+    }
+
+    .task-icon-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
     /* Task Examples */
     .task-examples {
       display: flex;
@@ -1089,57 +1231,59 @@
           <span class="live-payout-text">Bereits heute ausgezahlt: <span class="live-payout-amount" id="livePayout">€14.847</span></span>
         </div>
         
-        <!-- Milestone System -->
-        <div class="milestone-path">
-          <div class="milestone bronze">
-            <div class="milestone-icon">🥉</div>
-            <span class="milestone-label">Bronze</span>
+        <!-- Steps Guide -->
+        <div class="steps-guide">
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <div class="step-title">Kostenlos registrieren</div>
+              <div class="step-desc">Erstelle dein Freecash-Konto in Sekunden</div>
+            </div>
           </div>
-          <div class="milestone silver">
-            <div class="milestone-icon">🥈</div>
-            <span class="milestone-label">Silber</span>
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <div class="step-title">Erste Aufgaben erledigen</div>
+              <div class="step-desc">App-Tests, Umfragen & Upgrades abschließen</div>
+            </div>
           </div>
-          <div class="milestone gold">
-            <div class="milestone-icon">🥇</div>
-            <span class="milestone-label">Gold</span>
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <div class="step-title">Premium-Status erreichen</div>
+              <div class="step-desc">Werde aktiver Nutzer durch Aufgaben-Erledigung</div>
+            </div>
           </div>
-          <div class="milestone premium">
-            <div class="milestone-icon">📱</div>
-            <span class="milestone-label">TikTok</span>
+          <div class="step-item premium-step">
+            <div class="step-number premium">★</div>
+            <div class="step-content">
+              <div class="step-title premium">TikTok-Scrolling freischalten!</div>
+              <div class="step-desc">Installiere TikTok über Freecash und erhalte deine Auszahlungen per PayPal, Banküberweisung oder Gutschein</div>
+            </div>
           </div>
         </div>
 
-        <!-- Task Examples with Real Payouts -->
-        <div class="task-examples">
-          <div class="task-example">
-            <div class="task-left">
-              <div class="task-icon">📲</div>
-              <div class="task-info">
-                <span class="task-name">Apps testen</span>
-                <span class="task-type">App-Installation</span>
-              </div>
-            </div>
-            <span class="task-payout">+20€ - 35€</span>
+        <!-- TikTok Unlock Box -->
+        <div class="tiktok-unlock-box">
+          <div class="tiktok-unlock-header">
+            <span class="tiktok-unlock-icon">🔒</span>
+            <span class="tiktok-unlock-title">TikTok-Scrolling freischalten</span>
           </div>
-          <div class="task-example">
-            <div class="task-left">
-              <div class="task-icon">📋</div>
-              <div class="task-info">
-                <span class="task-name">Marktforschung</span>
-                <span class="task-type">Umfrage · 8 Min</span>
-              </div>
+          <p class="tiktok-unlock-text"><strong>TikTok-Scrolling-Verdienst</strong> ist ein Premium-Feature für aktive Nutzer.</p>
+          <p class="tiktok-unlock-subtext">Schließe zuerst ein paar einfache Aufgaben ab, um deinen <strong>Premium-Status</strong> zu aktivieren!</p>
+          <div class="task-icons">
+            <div class="task-icon-item">
+              <span class="task-icon-emoji">📲</span>
+              <span class="task-icon-label">App-Tests</span>
             </div>
-            <span class="task-payout">+10€ - 20€</span>
-          </div>
-          <div class="task-example">
-            <div class="task-left">
-              <div class="task-icon">🎮</div>
-              <div class="task-info">
-                <span class="task-name">Spiel-Level erreichen</span>
-                <span class="task-type">Mobile Game</span>
-              </div>
+            <div class="task-icon-item">
+              <span class="task-icon-emoji">📋</span>
+              <span class="task-icon-label">Umfragen</span>
             </div>
-            <span class="task-payout">+35€ - 60€</span>
+            <div class="task-icon-item">
+              <span class="task-icon-emoji">⭐</span>
+              <span class="task-icon-label">Upgrades</span>
+            </div>
           </div>
         </div>
 
@@ -1155,38 +1299,6 @@
             <div class="calculator-result-label">Monatlicher Verdienst</div>
             <div class="calculator-result-amount" id="calcAmount">200€ - 400€</div>
             <div class="calculator-result-period">bei <span id="calcTasks">2</span> Aufgaben pro Tag</div>
-          </div>
-        </div>
-
-        <!-- TikTok Unlock -->
-        <div class="unlock-box">
-          <div class="unlock-header">
-            <span class="unlock-icon">🔓</span>
-            <span class="unlock-title">TikTok-Scrolling freischalten</span>
-          </div>
-          <p class="unlock-desc">Registriere dich bei <strong>Freecash</strong>, erledige Aufgaben und erreiche den <strong>Gold-Status</strong> um beim TikTok-Scrollen zu verdienen!</p>
-          <div class="unlock-stats">
-            <div class="unlock-stat">
-              <span class="unlock-stat-value">10</span>
-              <span class="unlock-stat-label">Aufgaben</span>
-            </div>
-            <div class="unlock-stat">
-              <span class="unlock-stat-value">3-5</span>
-              <span class="unlock-stat-label">Tage</span>
-            </div>
-            <div class="unlock-stat">
-              <span class="unlock-stat-value">∞</span>
-              <span class="unlock-stat-label">Verdienst</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial -->
-        <div class="testimonial">
-          <div class="testimonial-avatar">👩</div>
-          <div class="testimonial-content">
-            <p class="testimonial-quote">"Habe nach 4 Tagen TikTok-Scrolling freigeschaltet. Die Aufgaben waren einfach und das Geld kam schnell auf mein PayPal!"</p>
-            <p class="testimonial-author">— <strong>Lisa, 23</strong> · Verifizierter Nutzer</p>
           </div>
         </div>
 
