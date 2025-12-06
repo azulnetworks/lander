@@ -489,6 +489,67 @@
     .milestone.gold .milestone-label { color: #ffd700; }
     .milestone.premium .milestone-label { color: #a855f7; }
 
+    /* Steps Section */
+    .steps-container {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(0, 230, 133, 0.2);
+      border-left: 3px solid #00e685;
+      border-radius: 16px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+    }
+
+    .step-item:not(:last-child) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #00e685;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 800;
+      color: #0a0f14;
+      flex-shrink: 0;
+    }
+
+    .step-number.premium {
+      background: #a855f7;
+      color: #ffffff;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .step-title.premium {
+      color: #a855f7;
+    }
+
+    .step-desc {
+      font-size: 13px;
+      color: #8b95a3;
+      line-height: 1.4;
+    }
+
     /* Task Examples */
     .task-examples {
       display: flex;
@@ -694,51 +755,6 @@
       text-transform: uppercase;
     }
 
-    /* Testimonial */
-    .testimonial {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 14px;
-      padding: 16px;
-      margin: 20px 0;
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-
-    .testimonial-avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      flex-shrink: 0;
-    }
-
-    .testimonial-content {
-      flex: 1;
-    }
-
-    .testimonial-quote {
-      font-size: 13px;
-      color: #ffffff;
-      font-style: italic;
-      line-height: 1.5;
-      margin-bottom: 8px;
-    }
-
-    .testimonial-author {
-      font-size: 12px;
-      color: #8b95a3;
-    }
-
-    .testimonial-author strong {
-      color: #00e685;
-    }
-
     /* Live Payout Counter */
     .live-payout {
       display: flex;
@@ -901,10 +917,18 @@
         gap: 15px;
       }
 
-      .testimonial {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+      .step-number {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+      }
+
+      .step-title {
+        font-size: 14px;
+      }
+
+      .step-desc {
+        font-size: 12px;
       }
     }
   </style>
@@ -1088,6 +1112,38 @@
           <span class="live-payout-dot"></span>
           <span class="live-payout-text">Bereits heute ausgezahlt: <span class="live-payout-amount" id="livePayout">€14.847</span></span>
         </div>
+
+        <!-- Steps Section -->
+        <div class="steps-container">
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <div class="step-title">Kostenlos registrieren</div>
+              <div class="step-desc">Erstelle dein Freecash-Konto in Sekunden</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <div class="step-title">Erste Aufgaben erledigen</div>
+              <div class="step-desc">App-Tests, Umfragen & Upgrades abschließen</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <div class="step-title">Premium-Status erreichen</div>
+              <div class="step-desc">Werde aktiver Nutzer durch Aufgaben-Erledigung</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number premium">★</div>
+            <div class="step-content">
+              <div class="step-title premium">TikTok-Scrolling freischalten!</div>
+              <div class="step-desc">Installiere TikTok über Freecash und erhalte deine Auszahlungen per PayPal, Banküberweisung oder Gutschein</div>
+            </div>
+          </div>
+        </div>
         
         <!-- Milestone System -->
         <div class="milestone-path">
@@ -1181,16 +1237,9 @@
           </div>
         </div>
 
-        <!-- Testimonial -->
-        <div class="testimonial">
-          <div class="testimonial-avatar">👩</div>
-          <div class="testimonial-content">
-            <p class="testimonial-quote">"Habe nach 4 Tagen TikTok-Scrolling freigeschaltet. Die Aufgaben waren einfach und das Geld kam schnell auf mein PayPal!"</p>
-            <p class="testimonial-author">— <strong>Lisa, 23</strong> · Verifizierter Nutzer</p>
-          </div>
-        </div>
-
         <a href="https://glitchy.go2cloud.org/aff_c?offer_id=3531&aff_id=9155&url_id=186&source=trafficqual" class="continue-btn" id="finalCta">BEI FREECASH REGISTRIEREN →</a>
+        
+        <p class="age-disclaimer">⚠️ Gib ein Alter von 21+ an, sonst wird die Auszahlung abgelehnt</p>
         
         <!-- Payment Methods -->
         <div class="payment-methods">
@@ -1206,8 +1255,6 @@
           <span class="proof-divider">·</span>
           <span>👥 500K+ Nutzer</span>
         </div>
-        
-        <p class="age-disclaimer">⚠️ Gib ein Alter von 21+ an, sonst wird die Auszahlung abgelehnt</p>
         
         <p class="secure-text">🔒 Kostenlose Anmeldung · Keine versteckten Kosten</p>
       </div>
@@ -1245,19 +1292,19 @@
       // Live payout counter - FASTER and LARGER increments
       var livePayout = 14847;
       function updateLivePayout() {
-        var increase = Math.floor(Math.random() * 120) + 45; // Random between 45-165 (much larger)
+        var increase = Math.floor(Math.random() * 120) + 45;
         livePayout += increase;
         var el = document.getElementById('livePayout');
         if (el) {
           el.textContent = '€' + livePayout.toLocaleString('de-DE');
           el.style.animation = 'none';
-          el.offsetHeight; // Trigger reflow
+          el.offsetHeight;
           el.style.animation = 'countUp 0.3s ease';
         }
       }
-      setInterval(updateLivePayout, 1500); // Every 1.5 seconds (faster)
+      setInterval(updateLivePayout, 1500);
 
-      // Notifications - mix of earnings and payouts with FIXED grammar
+      // Notifications
       var notifications = [
         { name: "Lisa M.", task: "App-Test abgeschlossen", amount: "+28€", avatar: "L", time: "gerade eben", isPayout: false },
         { name: "Max K.", amount: "52€", method: "PayPal", avatar: "M", time: "vor 1 Min", isPayout: true },
@@ -1286,9 +1333,7 @@
         var avatar = notif.querySelector('.notif-avatar');
         avatar.textContent = data.avatar;
         
-        // Build notification HTML based on type
         if (data.isPayout) {
-          // Payout notification - FIXED GRAMMAR: "Name hat sich xy auf PayPal/die Bank ausgezahlt"
           var methodText = data.method === 'Bank' ? 'die Bank' : data.method;
           notifText.innerHTML = '<strong>' + data.name + '</strong> hat sich <span class="notif-amount" style="color: #0070ba;">' + data.amount + '</span> ausgezahlt<br><span class="notif-task">auf ' + methodText + ' ✓</span>';
           
@@ -1298,7 +1343,6 @@
             avatar.className = 'notif-avatar payout';
           }
         } else {
-          // Earning notification - standard format
           var amountColor = data.amount === "Premium" ? "#a855f7" : "#00e685";
           notifText.innerHTML = '<strong>' + data.name + '</strong> hat <span class="notif-amount" style="color: ' + amountColor + ';">' + data.amount + '</span> verdient<br><span class="notif-task">' + data.task + '</span>';
           avatar.className = 'notif-avatar';
@@ -1380,7 +1424,7 @@
         document.getElementById('notReadyMsg').classList.add('show');
       };
 
-      // Calculator - Higher earnings
+      // Calculator
       window.updateCalculator = function() {
         var slider = document.getElementById('taskSlider');
         var tasks = parseInt(slider.value);
