@@ -1289,11 +1289,40 @@
       }
       setInterval(updateLiveUsers, 4000);
 
-      // Live payout counter - FASTER and LARGER increments
-      var livePayout = 14847;
+      // Cookie helpers
+      function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+          var date = new Date();
+          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+          expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+      }
+      
+      function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+      }
+
+      // Live payout counter - Cookie-based persistence
+      var savedPayout = getCookie('livePayout');
+      var livePayout = savedPayout ? parseInt(savedPayout) : 14847;
+      
+      // Update display immediately with saved value
+      var initEl = document.getElementById('livePayout');
+      if (initEl) initEl.textContent = '€' + livePayout.toLocaleString('de-DE');
+      
       function updateLivePayout() {
         var increase = Math.floor(Math.random() * 120) + 45;
         livePayout += increase;
+        setCookie('livePayout', livePayout, 1); // Save for 1 day
         var el = document.getElementById('livePayout');
         if (el) {
           el.textContent = '€' + livePayout.toLocaleString('de-DE');
