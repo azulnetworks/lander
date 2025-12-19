@@ -1183,7 +1183,7 @@
           </div>
         </div>
 
-        <a href="https://glitchy.go2cloud.org/aff_c?offer_id=3531&aff_id=9155&url_id=186&source=uknewpixel" class="continue-btn" id="finalCta">REGISTER WITH FREECASH →</a>
+        <a href="https://glitchy.go2cloud.org/aff_c?offer_id=3531&aff_id=9155&url_id=186&source=newpixel" class="continue-btn" id="finalCta">REGISTER WITH FREECASH →</a>
         
         <p class="age-disclaimer">⚠️ Enter an age of 21+, otherwise your payout will be rejected</p>
         
@@ -1223,6 +1223,7 @@
     (function() {
       if (typeof ttq !== 'undefined') {
         ttq.track('ViewContent');
+        console.log('🔥 TikTok Event Fired: ViewContent');
       }
 
       // Live users counter
@@ -1343,6 +1344,7 @@
       window.answerQ1 = function() {
         if (typeof ttq !== 'undefined') {
           ttq.track('ClickButton');
+          console.log('🔥 TikTok Event Fired: ClickButton');
         }
         
         document.getElementById('q1-content').style.display = 'none';
@@ -1365,6 +1367,7 @@
       window.answerQ2 = function() {
         if (typeof ttq !== 'undefined') {
           ttq.track('AddToWishlist');
+          console.log('🔥 TikTok Event Fired: AddToWishlist');
         }
         
         document.getElementById('q2-content').style.display = 'none';
@@ -1382,6 +1385,7 @@
       window.answerQ3 = function() {
         if (typeof ttq !== 'undefined') {
           ttq.track('AddToCart');
+          console.log('🔥 TikTok Event Fired: AddToCart');
         }
         
         document.getElementById('q3-content').style.display = 'none';
@@ -1418,7 +1422,9 @@
       document.getElementById('finalCta').addEventListener('click', function() {
         if (typeof ttq !== 'undefined') {
           ttq.track('InitiateCheckout');
+          console.log('🔥 TikTok Event Fired: InitiateCheckout');
           ttq.track('CompleteRegistration');
+          console.log('🔥 TikTok Event Fired: CompleteRegistration');
         }
       });
     })();
