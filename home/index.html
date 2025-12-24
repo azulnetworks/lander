@@ -950,8 +950,6 @@
         <div class="qualifier-progress">
           <div class="progress-dot active"></div>
           <div class="progress-dot"></div>
-          <div class="progress-dot"></div>
-          <div class="progress-dot"></div>
         </div>
         <h3 class="qualifier-title">How old are you?</h3>
         <p class="qualifier-subtitle">Freecash is available for users aged 18 and over</p>
@@ -991,100 +989,6 @@
     </div>
   </div>
 
-  <!-- QUALIFIER 2 - TikTok Interest (Emotional Hook) -->
-  <div class="qualifier-modal" id="q2">
-    <div class="qualifier-content">
-      <div class="logo-header">
-        <img src="https://i.imgur.com/d4rEH4U.png" alt="Freecash" class="logo">
-        <div class="trustpilot-badge">
-          <span class="trustpilot-star">★★★★★</span>
-          <span class="trustpilot-text"><strong>4.8</strong> on Trustpilot</span>
-        </div>
-      </div>
-
-      <div id="q2-content">
-        <div class="qualifier-progress">
-          <div class="progress-dot completed"></div>
-          <div class="progress-dot active"></div>
-          <div class="progress-dot"></div>
-          <div class="progress-dot"></div>
-        </div>
-        <h3 class="qualifier-title">Would you like to get paid to scroll TikTok?</h3>
-        <p class="qualifier-subtitle">Premium users can earn whilst scrolling 💰</p>
-        
-        <div class="qualifier-options">
-          <button class="qualifier-btn" onclick="answerQ2()">
-            <span class="qualifier-btn-icon">🔥</span>
-            <span>Yes, absolutely!</span>
-          </button>
-          <button class="qualifier-btn" onclick="answerQ2()">
-            <span class="qualifier-btn-icon">🤔</span>
-            <span>Sounds interesting</span>
-          </button>
-          <button class="qualifier-btn" onclick="answerQ2()">
-            <span class="qualifier-btn-icon">📱</span>
-            <span>I'd like to learn more</span>
-          </button>
-        </div>
-      </div>
-      <div id="q2-loading" style="display:none; text-align:center;">
-        <div class="loading-spinner"></div>
-        <p class="loading-text">Checking premium availability...</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- QUALIFIER 3 - Time Commitment -->
-  <div class="qualifier-modal" id="q3">
-    <div class="qualifier-content">
-      <div class="logo-header">
-        <img src="https://i.imgur.com/d4rEH4U.png" alt="Freecash" class="logo">
-        <div class="trustpilot-badge">
-          <span class="trustpilot-star">★★★★★</span>
-          <span class="trustpilot-text"><strong>4.8</strong> on Trustpilot</span>
-        </div>
-      </div>
-
-      <div id="q3-content">
-        <div class="qualifier-progress">
-          <div class="progress-dot completed"></div>
-          <div class="progress-dot completed"></div>
-          <div class="progress-dot active"></div>
-          <div class="progress-dot"></div>
-        </div>
-        <h3 class="qualifier-title">How much time can you invest daily?</h3>
-        <p class="qualifier-subtitle">Be honest – your earnings depend on it</p>
-        
-        <div class="qualifier-options">
-          <button class="qualifier-btn" onclick="answerQ3()">
-            <span class="qualifier-btn-icon">⏱️</span>
-            <span>15 - 30 minutes</span>
-          </button>
-          <button class="qualifier-btn" onclick="answerQ3()">
-            <span class="qualifier-btn-icon">⏱️</span>
-            <span>30 - 60 minutes</span>
-          </button>
-          <button class="qualifier-btn" onclick="answerQ3()">
-            <span class="qualifier-btn-icon">🔥</span>
-            <span>1+ hour</span>
-          </button>
-          <button class="qualifier-btn not-ready" onclick="showNotReady()">
-            <span class="qualifier-btn-icon">😴</span>
-            <span>I don't have time</span>
-          </button>
-        </div>
-
-        <div class="not-ready-message" id="notReadyMsg">
-          <span>⚠️ Freecash requires active participation. Come back when you're ready!</span>
-        </div>
-      </div>
-      <div id="q3-loading" style="display:none; text-align:center;">
-        <div class="loading-spinner"></div>
-        <p class="loading-text">Calculating earning potential...</p>
-      </div>
-    </div>
-  </div>
-
   <!-- FINAL PAGE -->
   <div class="qualifier-modal" id="q4">
     <div class="qualifier-content">
@@ -1097,8 +1001,6 @@
       </div>
 
       <div class="qualifier-progress">
-        <div class="progress-dot completed"></div>
-        <div class="progress-dot completed"></div>
         <div class="progress-dot completed"></div>
         <div class="progress-dot active"></div>
       </div>
@@ -1352,7 +1254,7 @@
         
         setTimeout(function() {
           document.getElementById('q1').classList.remove('active');
-          document.getElementById('q2').classList.add('active');
+          document.getElementById('q4').classList.add('active');
           document.getElementById('q1-content').style.display = 'block';
           document.getElementById('q1-loading').style.display = 'none';
           notificationsStarted = true;
@@ -1361,46 +1263,6 @@
 
       window.showUnder18 = function() {
         document.getElementById('under18Msg').classList.add('show');
-      };
-
-      // Q2 - TikTok Interest
-      window.answerQ2 = function() {
-        if (typeof ttq !== 'undefined') {
-          ttq.track('AddToWishlist');
-          console.log('🔥 TikTok Event Fired: AddToWishlist');
-        }
-        
-        document.getElementById('q2-content').style.display = 'none';
-        document.getElementById('q2-loading').style.display = 'block';
-        
-        setTimeout(function() {
-          document.getElementById('q2').classList.remove('active');
-          document.getElementById('q3').classList.add('active');
-          document.getElementById('q2-content').style.display = 'block';
-          document.getElementById('q2-loading').style.display = 'none';
-        }, 1200);
-      };
-
-      // Q3 - Time Commitment
-      window.answerQ3 = function() {
-        if (typeof ttq !== 'undefined') {
-          ttq.track('AddToCart');
-          console.log('🔥 TikTok Event Fired: AddToCart');
-        }
-        
-        document.getElementById('q3-content').style.display = 'none';
-        document.getElementById('q3-loading').style.display = 'block';
-        
-        setTimeout(function() {
-          document.getElementById('q3').classList.remove('active');
-          document.getElementById('q4').classList.add('active');
-          document.getElementById('q3-content').style.display = 'block';
-          document.getElementById('q3-loading').style.display = 'none';
-        }, 1200);
-      };
-
-      window.showNotReady = function() {
-        document.getElementById('notReadyMsg').classList.add('show');
       };
 
       // Calculator
