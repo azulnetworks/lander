@@ -526,35 +526,6 @@
       <p class="subheadline">Answer one quick question to verify your eligibility</p>
 
       <div class="question-section">
-        <div class="question-title">What device are you using?</div>
-
-        <div class="device-option" onclick="selectDevice('ios')">
-          <div class="device-content">
-            <div class="device-icon">📱</div>
-            <div class="device-text">
-              <div class="device-name">iPhone / iOS</div>
-              <div class="device-description">I'm using an Apple device</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="device-option" onclick="selectDevice('android')">
-          <div class="device-content">
-            <div class="device-icon">🤖</div>
-            <div class="device-text">
-              <div class="device-name">Android</div>
-              <div class="device-description">I'm using an Android device</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="step1b" class="hidden">
-      <div class="hook-headline">Almost There!</div>
-      <p class="subheadline">One more question to confirm your Zelle eligibility</p>
-
-      <div class="question-section">
         <div class="question-title">Do you have a U.S. bank account linked to Zelle?</div>
 
         <div class="device-option" onclick="selectZelleStatus('yes')">
@@ -724,30 +695,16 @@
         setTimeout(showNotif, 2000);
       });
 
-      window.selectDevice = function(device) {
-        console.log("Device selected:", device);
+      window.selectZelleStatus = function(status) {
+        console.log("Zelle status:", status);
         
-        // Fire ClickButton event on first qualifier
+        // Fire ClickButton event on qualifier
         if (typeof ttq !== 'undefined') {
           ttq.track('ClickButton');
           console.log('🔥 TikTok Event Fired: ClickButton');
         }
         
         document.getElementById("step1").classList.add("hidden");
-        document.getElementById("step1b").classList.remove("hidden");
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      };
-
-      window.selectZelleStatus = function(status) {
-        console.log("Zelle status:", status);
-        
-        // Fire AddToWishlist event on second qualifier
-        if (typeof ttq !== 'undefined') {
-          ttq.track('AddToWishlist');
-          console.log('🔥 TikTok Event Fired: AddToWishlist');
-        }
-        
-        document.getElementById("step1b").classList.add("hidden");
         
         if (status === 'no') {
           document.getElementById("step1c").classList.remove("hidden");
