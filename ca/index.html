@@ -5,10 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
   <meta name="format-detection" content="telephone=no">
-  <meta name="theme-color" content="#1a1a2e">
+  <meta name="theme-color" content="#0a0f14">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="robots" content="noindex">
-  <title>Playful - Rewards App</title>
+  <title>Freecash - Rewards App</title>
 
   <link rel="preconnect" href="https://analytics.tiktok.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,12 +39,12 @@
     html {
       scroll-behavior: smooth;
       -webkit-text-size-adjust: 100%;
-      background: #1a1a2e;
+      background: #0a0f14;
     }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #1a1a2e;
+      background: #0a0f14;
       color: #ffffff;
       line-height: 1.6;
       overflow-x: hidden;
@@ -54,15 +54,15 @@
     }
 
     :root {
-      --purple-primary: #7f39fb;
-      --purple-dark: #6e2fd3;
-      --purple-light: #9656ff;
-      --dark: #1a1a2e;
-      --dark-lighter: #252542;
+      --green-primary: #00e685;
+      --green-dark: #00d87a;
+      --dark: #0a0f14;
+      --dark-lighter: #141b22;
       --gray: #8b95a3;
       --white: #ffffff;
       --red: #ff5757;
       --yellow: #ffc107;
+      --purple: #a855f7;
       --bronze: #cd7f32;
       --silver: #c0c0c0;
       --gold: #ffd700;
@@ -89,13 +89,13 @@
     }
 
     @keyframes ctaPulse {
-      0%, 100% { box-shadow: 0 10px 30px rgba(127, 57, 251, 0.4); }
-      50% { box-shadow: 0 15px 45px rgba(127, 57, 251, 0.6); }
+      0%, 100% { box-shadow: 0 10px 30px rgba(0, 230, 133, 0.4); }
+      50% { box-shadow: 0 15px 45px rgba(0, 230, 133, 0.6); }
     }
 
     @keyframes glow {
-      0%, 100% { box-shadow: 0 5px 20px rgba(127, 57, 251, 0.3); }
-      50% { box-shadow: 0 5px 30px rgba(127, 57, 251, 0.5); }
+      0%, 100% { box-shadow: 0 5px 20px rgba(0, 230, 133, 0.3); }
+      50% { box-shadow: 0 5px 30px rgba(0, 230, 133, 0.5); }
     }
 
     @keyframes pulse {
@@ -114,8 +114,8 @@
       top: 20px;
       left: 50%;
       transform: translateX(-50%) translateY(-150px);
-      background: #252542;
-      border: 1px solid rgba(127, 57, 251, 0.3);
+      background: #141b22;
+      border: 1px solid rgba(0, 230, 133, 0.3);
       border-radius: 15px;
       padding: 16px 20px;
       display: flex;
@@ -135,13 +135,13 @@
     .notif-avatar {
       width: 38px;
       height: 38px;
-      background: #7f39fb;
+      background: #00e685;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
-      color: #ffffff;
+      color: #0a0f14;
       flex-shrink: 0;
       font-size: 14px;
     }
@@ -171,7 +171,7 @@
     }
 
     .notif-amount {
-      color: #7f39fb;
+      color: #00e685;
       font-weight: 700;
     }
 
@@ -193,7 +193,7 @@
       width: 100vw;
       height: 100vh;
       height: 100dvh;
-      background: #1a1a2e;
+      background: #0a0f14;
       display: none;
       align-items: flex-start;
       justify-content: center;
@@ -210,8 +210,8 @@
     }
 
     .qualifier-content {
-      background: #252542;
-      border: 1px solid rgba(127, 57, 251, 0.2);
+      background: #141b22;
+      border: 1px solid rgba(0, 230, 133, 0.2);
       border-radius: 25px;
       padding: 35px;
       max-width: 480px;
@@ -231,7 +231,7 @@
       width: 70px;
       height: 70px;
       border-radius: 16px;
-      border: 2px solid #7f39fb;
+      border: 2px solid #00e685;
       animation: glow 3s ease-in-out infinite;
       margin-bottom: 12px;
     }
@@ -240,15 +240,15 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      background: rgba(127, 57, 251, 0.1);
-      border: 1px solid rgba(127, 57, 251, 0.3);
+      background: rgba(0, 182, 122, 0.1);
+      border: 1px solid rgba(0, 182, 122, 0.3);
       border-radius: 20px;
       padding: 6px 14px;
       margin-bottom: 5px;
     }
 
     .trustpilot-star {
-      color: #7f39fb;
+      color: #00b67a;
       font-size: 12px;
     }
 
@@ -278,12 +278,12 @@
     }
 
     .progress-dot.active {
-      background: #7f39fb;
-      box-shadow: 0 0 10px rgba(127, 57, 251, 0.5);
+      background: #00e685;
+      box-shadow: 0 0 10px rgba(0, 230, 133, 0.5);
     }
 
     .progress-dot.completed {
-      background: #7f39fb;
+      background: #00e685;
     }
 
     .qualifier-title {
@@ -327,8 +327,8 @@
     }
 
     .qualifier-btn:hover {
-      background: rgba(127, 57, 251, 0.1);
-      border-color: #7f39fb;
+      background: rgba(0, 230, 133, 0.1);
+      border-color: #00e685;
       transform: translateX(5px);
     }
 
@@ -364,8 +364,8 @@
     .loading-spinner {
       width: 55px;
       height: 55px;
-      border: 3px solid rgba(127, 57, 251, 0.2);
-      border-top: 3px solid #7f39fb;
+      border: 3px solid rgba(0, 230, 133, 0.2);
+      border-top: 3px solid #00e685;
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
       margin: 0 auto 18px;
@@ -379,7 +379,7 @@
     .success-title {
       font-size: 24px;
       font-weight: 800;
-      color: #7f39fb;
+      color: #00e685;
       margin-bottom: 8px;
     }
 
@@ -402,7 +402,7 @@
     .user-count-badge .dot {
       width: 8px;
       height: 8px;
-      background: #7f39fb;
+      background: #00e685;
       border-radius: 50%;
       animation: pulse 1.5s ease-in-out infinite;
     }
@@ -411,43 +411,129 @@
       color: #ffffff;
     }
 
-    /* Steps Section */
-    .steps-container {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(127, 57, 251, 0.2);
-      border-left: 3px solid #7f39fb;
-      border-radius: 16px;
-      padding: 20px;
+    /* Milestone System */
+    .milestone-path {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 25px 0;
+      position: relative;
+      padding: 0 10px;
+    }
+
+    .milestone-path::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 30px;
+      right: 30px;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-50%);
+      z-index: 0;
+    }
+
+    .milestone {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      z-index: 1;
+    }
+
+    .milestone-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 800;
+      background: #1a2129;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .milestone.bronze .milestone-icon {
+      border-color: #cd7f32;
+      color: #cd7f32;
+    }
+
+    .milestone.silver .milestone-icon {
+      border-color: #c0c0c0;
+      color: #c0c0c0;
+    }
+
+    .milestone.gold .milestone-icon {
+      border-color: #ffd700;
+      color: #ffd700;
+    }
+
+    .milestone.premium .milestone-icon {
+      border-color: #a855f7;
+      color: #a855f7;
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(124, 58, 237, 0.1) 100%);
+    }
+
+    .milestone-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #8b95a3;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .milestone.bronze .milestone-label { color: #cd7f32; }
+    .milestone.silver .milestone-label { color: #c0c0c0; }
+    .milestone.gold .milestone-label { color: #ffd700; }
+    .milestone.premium .milestone-label { color: #a855f7; }
+
+    /* Steps Guide */
+    .steps-guide {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
       margin: 20px 0;
+      background: rgba(0, 230, 133, 0.03);
+      border: 1px solid rgba(0, 230, 133, 0.15);
+      border-radius: 16px;
+      overflow: hidden;
     }
 
     .step-item {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 16px;
-      padding: 16px 0;
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .step-item:not(:last-child) {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    .step-item:last-child {
+      border-bottom: none;
+    }
+
+    .step-item.premium-step {
+      background: rgba(168, 85, 247, 0.1);
+      border-bottom: none;
     }
 
     .step-number {
       width: 36px;
       height: 36px;
+      background: #00e685;
       border-radius: 50%;
-      background: #7f39fb;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 16px;
       font-weight: 800;
-      color: #ffffff;
+      color: #0a0f14;
       flex-shrink: 0;
     }
 
     .step-number.premium {
-      background: #9656ff;
+      background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
       color: #ffffff;
     }
 
@@ -456,26 +542,162 @@
     }
 
     .step-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       color: #ffffff;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
 
     .step-title.premium {
-      color: #9656ff;
+      color: #a855f7;
     }
 
     .step-desc {
-      font-size: 13px;
+      font-size: 12px;
       color: #8b95a3;
       line-height: 1.4;
     }
 
+    /* TikTok Unlock Box (Purple) */
+    .tiktok-unlock-box {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(124, 58, 237, 0.08) 100%);
+      border: 2px solid rgba(168, 85, 247, 0.5);
+      border-radius: 16px;
+      padding: 24px 20px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .tiktok-unlock-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .tiktok-unlock-icon {
+      font-size: 22px;
+    }
+
+    .tiktok-unlock-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #a855f7;
+    }
+
+    .tiktok-unlock-text {
+      font-size: 14px;
+      color: #ffffff;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .tiktok-unlock-text strong {
+      color: #ffffff;
+    }
+
+    .tiktok-unlock-subtext {
+      font-size: 13px;
+      color: #8b95a3;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .tiktok-unlock-subtext strong {
+      color: #a855f7;
+    }
+
+    .task-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .task-icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .task-icon-emoji {
+      font-size: 32px;
+    }
+
+    .task-icon-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    /* Task Examples */
+    .task-examples {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .task-example {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .task-example:hover {
+      background: rgba(0, 230, 133, 0.05);
+      border-color: rgba(0, 230, 133, 0.2);
+    }
+
+    .task-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .task-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .task-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .task-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .task-type {
+      font-size: 11px;
+      color: #8b95a3;
+    }
+
+    .task-payout {
+      font-size: 16px;
+      font-weight: 800;
+      color: #00e685;
+    }
+
     /* Earnings Calculator */
     .calculator-box {
-      background: rgba(127, 57, 251, 0.05);
-      border: 1px solid rgba(127, 57, 251, 0.2);
+      background: rgba(0, 230, 133, 0.05);
+      border: 1px solid rgba(0, 230, 133, 0.2);
       border-radius: 16px;
       padding: 20px;
       margin: 20px 0;
@@ -504,16 +726,16 @@
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      background: #7f39fb;
+      background: #00e685;
       cursor: pointer;
-      box-shadow: 0 2px 10px rgba(127, 57, 251, 0.4);
+      box-shadow: 0 2px 10px rgba(0, 230, 133, 0.4);
     }
 
     .calculator-slider::-moz-range-thumb {
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      background: #7f39fb;
+      background: #00e685;
       cursor: pointer;
       border: none;
     }
@@ -529,7 +751,7 @@
     .calculator-result {
       text-align: center;
       padding: 15px;
-      background: rgba(127, 57, 251, 0.1);
+      background: rgba(0, 230, 133, 0.1);
       border-radius: 12px;
     }
 
@@ -542,7 +764,7 @@
     .calculator-result-amount {
       font-size: 32px;
       font-weight: 900;
-      color: #7f39fb;
+      color: #00e685;
     }
 
     .calculator-result-period {
@@ -553,8 +775,8 @@
 
     /* TikTok Unlock Box */
     .unlock-box {
-      background: linear-gradient(135deg, rgba(127, 57, 251, 0.15) 0%, rgba(110, 47, 211, 0.05) 100%);
-      border: 2px solid rgba(127, 57, 251, 0.4);
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(124, 58, 237, 0.05) 100%);
+      border: 2px solid rgba(168, 85, 247, 0.4);
       border-radius: 16px;
       padding: 20px;
       margin: 20px 0;
@@ -576,7 +798,7 @@
     .unlock-title {
       font-size: 16px;
       font-weight: 800;
-      color: #7f39fb;
+      color: #a855f7;
     }
 
     .unlock-desc {
@@ -605,13 +827,58 @@
     .unlock-stat-value {
       font-size: 18px;
       font-weight: 800;
-      color: #7f39fb;
+      color: #a855f7;
     }
 
     .unlock-stat-label {
       font-size: 10px;
       color: #8b95a3;
       text-transform: uppercase;
+    }
+
+    /* Testimonial */
+    .testimonial {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 16px;
+      margin: 20px 0;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .testimonial-content {
+      flex: 1;
+    }
+
+    .testimonial-quote {
+      font-size: 13px;
+      color: #ffffff;
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .testimonial-author {
+      font-size: 12px;
+      color: #8b95a3;
+    }
+
+    .testimonial-author strong {
+      color: #00e685;
     }
 
     /* Live Payout Counter */
@@ -621,8 +888,8 @@
       justify-content: center;
       gap: 8px;
       padding: 12px 16px;
-      background: rgba(127, 57, 251, 0.1);
-      border: 1px solid rgba(127, 57, 251, 0.3);
+      background: rgba(0, 230, 133, 0.1);
+      border: 1px solid rgba(0, 230, 133, 0.3);
       border-radius: 12px;
       margin-bottom: 15px;
     }
@@ -630,7 +897,7 @@
     .live-payout-dot {
       width: 8px;
       height: 8px;
-      background: #7f39fb;
+      background: #00e685;
       border-radius: 50%;
       animation: pulse 1.5s ease-in-out infinite;
     }
@@ -642,7 +909,7 @@
 
     .live-payout-amount {
       font-weight: 800;
-      color: #7f39fb;
+      color: #00e685;
       font-variant-numeric: tabular-nums;
     }
 
@@ -685,8 +952,8 @@
 
     /* CTA Button */
     .continue-btn {
-      background: linear-gradient(135deg, #7f39fb 0%, #6e2fd3 100%);
-      color: #ffffff;
+      background: linear-gradient(135deg, #00e685 0%, #00d87a 100%);
+      color: #0a0f14;
       padding: 20px 40px;
       border-radius: 14px;
       font-weight: 800;
@@ -758,6 +1025,16 @@
         height: 60px;
       }
 
+      .milestone-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+      }
+
+      .milestone-label {
+        font-size: 9px;
+      }
+
       .calculator-result-amount {
         font-size: 28px;
       }
@@ -766,18 +1043,10 @@
         gap: 15px;
       }
 
-      .step-number {
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
-      }
-
-      .step-title {
-        font-size: 14px;
-      }
-
-      .step-desc {
-        font-size: 12px;
+      .testimonial {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
       }
     }
   </style>
@@ -788,7 +1057,7 @@
   <div class="qualifier-modal active" id="q1">
     <div class="qualifier-content">
       <div class="logo-header">
-        <img src="https://i.imgur.com/QY1Qgv9.png" alt="Playful" class="logo">
+        <img src="https://i.imgur.com/d4rEH4U.png" alt="Freecash" class="logo">
         <div class="trustpilot-badge">
           <span class="trustpilot-star">★★★★★</span>
           <span class="trustpilot-text"><strong>4.8</strong> on Trustpilot</span>
@@ -800,9 +1069,10 @@
           <div class="progress-dot active"></div>
           <div class="progress-dot"></div>
           <div class="progress-dot"></div>
+          <div class="progress-dot"></div>
         </div>
         <h3 class="qualifier-title">How old are you?</h3>
-        <p class="qualifier-subtitle">Playful is available for users aged 18 and over</p>
+        <p class="qualifier-subtitle">Freecash is available for users 18 and older</p>
         
         <div class="qualifier-options">
           <button class="qualifier-btn" onclick="answerQ1()">
@@ -824,7 +1094,7 @@
         </div>
 
         <div class="under18-message" id="under18Msg">
-          <span>⚠️ Sorry, only available for users aged 18 and over</span>
+          <span>⚠️ Sorry, only available for users 18 and older</span>
         </div>
 
         <div class="user-count-badge">
@@ -843,7 +1113,7 @@
   <div class="qualifier-modal" id="q2">
     <div class="qualifier-content">
       <div class="logo-header">
-        <img src="https://i.imgur.com/QY1Qgv9.png" alt="Playful" class="logo">
+        <img src="https://i.imgur.com/d4rEH4U.png" alt="Freecash" class="logo">
         <div class="trustpilot-badge">
           <span class="trustpilot-star">★★★★★</span>
           <span class="trustpilot-text"><strong>4.8</strong> on Trustpilot</span>
@@ -855,8 +1125,9 @@
           <div class="progress-dot completed"></div>
           <div class="progress-dot active"></div>
           <div class="progress-dot"></div>
+          <div class="progress-dot"></div>
         </div>
-        <h3 class="qualifier-title">Would you like to get paid to scroll TikTok?</h3>
+        <h3 class="qualifier-title">Want to get paid for scrolling TikTok?</h3>
         <p class="qualifier-subtitle">Premium users can earn while scrolling 💰</p>
         
         <div class="qualifier-options">
@@ -870,7 +1141,7 @@
           </button>
           <button class="qualifier-btn" onclick="answerQ2()">
             <span class="qualifier-btn-icon">📱</span>
-            <span>I'd like to learn more</span>
+            <span>I want to learn more</span>
           </button>
         </div>
       </div>
@@ -881,11 +1152,62 @@
     </div>
   </div>
 
+  <!-- QUALIFIER 3 - Time Commitment -->
+  <div class="qualifier-modal" id="q3">
+    <div class="qualifier-content">
+      <div class="logo-header">
+        <img src="https://i.imgur.com/d4rEH4U.png" alt="Freecash" class="logo">
+        <div class="trustpilot-badge">
+          <span class="trustpilot-star">★★★★★</span>
+          <span class="trustpilot-text"><strong>4.8</strong> on Trustpilot</span>
+        </div>
+      </div>
+
+      <div id="q3-content">
+        <div class="qualifier-progress">
+          <div class="progress-dot completed"></div>
+          <div class="progress-dot completed"></div>
+          <div class="progress-dot active"></div>
+          <div class="progress-dot"></div>
+        </div>
+        <h3 class="qualifier-title">How much time can you invest daily?</h3>
+        <p class="qualifier-subtitle">Be honest – your earnings depend on it</p>
+        
+        <div class="qualifier-options">
+          <button class="qualifier-btn" onclick="answerQ3()">
+            <span class="qualifier-btn-icon">⏱️</span>
+            <span>15 - 30 minutes</span>
+          </button>
+          <button class="qualifier-btn" onclick="answerQ3()">
+            <span class="qualifier-btn-icon">⏱️</span>
+            <span>30 - 60 minutes</span>
+          </button>
+          <button class="qualifier-btn" onclick="answerQ3()">
+            <span class="qualifier-btn-icon">🔥</span>
+            <span>1+ hour</span>
+          </button>
+          <button class="qualifier-btn not-ready" onclick="showNotReady()">
+            <span class="qualifier-btn-icon">😴</span>
+            <span>I don't have time</span>
+          </button>
+        </div>
+
+        <div class="not-ready-message" id="notReadyMsg">
+          <span>⚠️ Freecash requires active participation. Come back when you're ready!</span>
+        </div>
+      </div>
+      <div id="q3-loading" style="display:none; text-align:center;">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">Calculating earning potential...</p>
+      </div>
+    </div>
+  </div>
+
   <!-- FINAL PAGE -->
   <div class="qualifier-modal" id="q4">
     <div class="qualifier-content">
       <div class="logo-header">
-        <img src="https://i.imgur.com/QY1Qgv9.png" alt="Playful" class="logo">
+        <img src="https://i.imgur.com/d4rEH4U.png" alt="Freecash" class="logo">
         <div class="trustpilot-badge">
           <span class="trustpilot-star">★★★★★</span>
           <span class="trustpilot-text"><strong>4.8</strong> on Trustpilot</span>
@@ -895,33 +1217,34 @@
       <div class="qualifier-progress">
         <div class="progress-dot completed"></div>
         <div class="progress-dot completed"></div>
+        <div class="progress-dot completed"></div>
         <div class="progress-dot active"></div>
       </div>
 
       <div class="success-message">
         <h3 class="success-title">Your Path to TikTok Scrolling!</h3>
-        <p class="qualifier-subtitle">Download Playful & complete tasks</p>
+        <p class="qualifier-subtitle">Sign up for Freecash & complete tasks</p>
 
         <!-- Live Payout Counter -->
         <div class="live-payout">
           <span class="live-payout-dot"></span>
-          <span class="live-payout-text">Paid out today: <span class="live-payout-amount" id="livePayout">$14,847</span></span>
+          <span class="live-payout-text">Paid out today: <span class="live-payout-amount" id="livePayout">$16,247</span></span>
         </div>
-
-        <!-- Steps Section -->
-        <div class="steps-container">
+        
+        <!-- Steps Guide -->
+        <div class="steps-guide">
           <div class="step-item">
             <div class="step-number">1</div>
             <div class="step-content">
-              <div class="step-title">Register for free</div>
-              <div class="step-desc">Create your Playful account in seconds</div>
+              <div class="step-title">Sign up for free</div>
+              <div class="step-desc">Create your Freecash account in seconds</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-number">2</div>
             <div class="step-content">
               <div class="step-title">Complete your first tasks</div>
-              <div class="step-desc">Finish app tests, surveys & upgrades</div>
+              <div class="step-desc">App tests, surveys & upgrades</div>
             </div>
           </div>
           <div class="step-item">
@@ -931,56 +1254,55 @@
               <div class="step-desc">Become an active user by completing tasks</div>
             </div>
           </div>
-          <div class="step-item">
+          <div class="step-item premium-step">
             <div class="step-number premium">★</div>
             <div class="step-content">
               <div class="step-title premium">Unlock TikTok Scrolling!</div>
-              <div class="step-desc">Install TikTok via Playful and receive your payouts via PayPal, bank transfer or gift card</div>
+              <div class="step-desc">Install TikTok through Freecash and receive your payouts via PayPal, bank transfer, or gift card</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TikTok Unlock Box -->
+        <div class="tiktok-unlock-box">
+          <div class="tiktok-unlock-header">
+            <span class="tiktok-unlock-icon">🔒</span>
+            <span class="tiktok-unlock-title">Unlock TikTok Scrolling</span>
+          </div>
+          <p class="tiktok-unlock-text"><strong>TikTok Scrolling Earnings</strong> is a premium feature for active users.</p>
+          <p class="tiktok-unlock-subtext">Complete a few simple tasks first to activate your <strong>Premium Status</strong>!</p>
+          <div class="task-icons">
+            <div class="task-icon-item">
+              <span class="task-icon-emoji">📲</span>
+              <span class="task-icon-label">App Tests</span>
+            </div>
+            <div class="task-icon-item">
+              <span class="task-icon-emoji">📋</span>
+              <span class="task-icon-label">Surveys</span>
+            </div>
+            <div class="task-icon-item">
+              <span class="task-icon-emoji">⭐</span>
+              <span class="task-icon-label">Upgrades</span>
             </div>
           </div>
         </div>
 
         <!-- Earnings Calculator -->
         <div class="calculator-box">
-          <div class="calculator-title">💰 Your estimated earnings</div>
+          <div class="calculator-title">💰 Your Estimated Earnings</div>
           <input type="range" min="1" max="5" value="2" class="calculator-slider" id="taskSlider" oninput="updateCalculator()">
           <div class="calculator-labels">
             <span>1 task/day</span>
             <span>5 tasks/day</span>
           </div>
           <div class="calculator-result">
-            <div class="calculator-result-label">Monthly earnings</div>
+            <div class="calculator-result-label">Monthly Earnings</div>
             <div class="calculator-result-amount" id="calcAmount">$200 - $400</div>
             <div class="calculator-result-period">with <span id="calcTasks">2</span> tasks per day</div>
           </div>
         </div>
 
-        <!-- TikTok Unlock -->
-        <div class="unlock-box">
-          <div class="unlock-header">
-            <span class="unlock-icon">🔓</span>
-            <span class="unlock-title">Unlock TikTok Scrolling</span>
-          </div>
-          <p class="unlock-desc">Download <strong>Playful</strong>, complete tasks and reach <strong>Gold Status</strong> to earn while scrolling TikTok!</p>
-          <div class="unlock-stats">
-            <div class="unlock-stat">
-              <span class="unlock-stat-value">10</span>
-              <span class="unlock-stat-label">Tasks</span>
-            </div>
-            <div class="unlock-stat">
-              <span class="unlock-stat-value">3-5</span>
-              <span class="unlock-stat-label">Days</span>
-            </div>
-            <div class="unlock-stat">
-              <span class="unlock-stat-value">∞</span>
-              <span class="unlock-stat-label">Earnings</span>
-            </div>
-          </div>
-        </div>
-
-        <a href="https://trkio.org/aff_c?offer_id=2691&aff_id=9155&source=newus" class="continue-btn" id="finalCta">DOWNLOAD PLAYFUL →</a>
-        
-        <p class="age-disclaimer">⚠️ Enter an age of 21+, otherwise your payout will be rejected</p>
+        <a href="https://gloffers.org/aff_c?offer_id=3531&aff_id=9155&url_id=186&source=catest" class="continue-btn" id="finalCta">SIGN UP FOR FREECASH →</a>
         
         <!-- Payment Methods -->
         <div class="payment-methods">
@@ -997,7 +1319,9 @@
           <span>👥 500K+ users</span>
         </div>
         
-        <p class="secure-text">🔒 Free registration · No hidden costs</p>
+        <p class="age-disclaimer">⚠️ Enter an age of 21+ or your payout will be rejected</p>
+        
+        <p class="secure-text">🔒 Free sign up · No hidden fees</p>
       </div>
     </div>
   </div>
@@ -1007,8 +1331,8 @@
     <div class="notif-avatar">M</div>
     <div class="notif-content">
       <div class="notif-text" id="notifTextContent">
-        <strong>Max</strong> earned <span class="notif-amount">+$28</span><br>
-        <span class="notif-task">App test completed</span>
+        <strong>Mike</strong> earned <span class="notif-amount">+$28</span><br>
+        <span class="notif-task">Coinbase signup</span>
       </div>
       <div class="notif-time">just now</div>
     </div>
@@ -1018,7 +1342,6 @@
     (function() {
       if (typeof ttq !== 'undefined') {
         ttq.track('ViewContent');
-        console.log('🔥 TikTok Event Fired: ViewContent');
       }
 
       // Live users counter
@@ -1031,61 +1354,32 @@
       }
       setInterval(updateLiveUsers, 4000);
 
-      // Cookie helpers
-      function setCookie(name, value, days) {
-        var expires = "";
-        if (days) {
-          var date = new Date();
-          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-          expires = "; expires=" + date.toUTCString();
-        }
-        document.cookie = name + "=" + (value || "") + expires + "; path=/";
-      }
-      
-      function getCookie(name) {
-        var nameEQ = name + "=";
-        var ca = document.cookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-          var c = ca[i];
-          while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-        }
-        return null;
-      }
-
-      // Live payout counter - Cookie-based persistence
-      var savedPayout = getCookie('livePayout');
-      var livePayout = savedPayout ? parseInt(savedPayout) : 14847;
-      
-      // Update display immediately with saved value
-      var initEl = document.getElementById('livePayout');
-      if (initEl) initEl.textContent = '$' + livePayout.toLocaleString('en-US');
-      
+      // Live payout counter - FASTER and LARGER increments
+      var livePayout = 16247;
       function updateLivePayout() {
-        var increase = Math.floor(Math.random() * 120) + 45;
+        var increase = Math.floor(Math.random() * 120) + 45; // Random between 45-165 (much larger)
         livePayout += increase;
-        setCookie('livePayout', livePayout, 1); // Save for 1 day
         var el = document.getElementById('livePayout');
         if (el) {
           el.textContent = '$' + livePayout.toLocaleString('en-US');
           el.style.animation = 'none';
-          el.offsetHeight;
+          el.offsetHeight; // Trigger reflow
           el.style.animation = 'countUp 0.3s ease';
         }
       }
-      setInterval(updateLivePayout, 1500);
+      setInterval(updateLivePayout, 1500); // Every 1.5 seconds (faster)
 
-      // Notifications
+      // Notifications - mix of earnings and payouts with US names and USD
       var notifications = [
         { name: "Lisa M.", task: "App test completed", amount: "+$28", avatar: "L", time: "just now", isPayout: false },
-        { name: "Max K.", amount: "$52", method: "PayPal", avatar: "M", time: "1 min ago", isPayout: true },
+        { name: "Mike K.", amount: "$52", method: "PayPal", avatar: "M", time: "1 min ago", isPayout: true },
         { name: "Sarah B.", task: "Game level reached", amount: "+$52", avatar: "S", time: "just now", isPayout: false },
-        { name: "Tim H.", task: "Gold Status reached 🥇", amount: "+$65", avatar: "T", time: "2 mins ago", isPayout: false },
+        { name: "Tim H.", task: "Gold status reached 🥇", amount: "+$65", avatar: "T", time: "2 min ago", isPayout: false },
         { name: "Julia W.", amount: "$89", method: "Bank", avatar: "J", time: "just now", isPayout: true },
-        { name: "Felix R.", task: "TikTok Scrolling unlocked", amount: "Premium", avatar: "F", time: "1 min ago", isPayout: false },
+        { name: "Felix R.", task: "TikTok scrolling unlocked", amount: "Premium", avatar: "F", time: "1 min ago", isPayout: false },
         { name: "Anna S.", task: "3 surveys completed", amount: "+$38", avatar: "A", time: "just now", isPayout: false },
-        { name: "David K.", amount: "$125", method: "PayPal", avatar: "D", time: "2 mins ago", isPayout: true },
-        { name: "Sophie L.", task: "Bronze Status reached 🥉", amount: "+$45", avatar: "S", time: "just now", isPayout: false },
+        { name: "David K.", amount: "$125", method: "PayPal", avatar: "D", time: "2 min ago", isPayout: true },
+        { name: "Sophie L.", task: "Bronze status reached 🥉", amount: "+$45", avatar: "S", time: "just now", isPayout: false },
         { name: "Michael B.", task: "App test completed", amount: "+$19", avatar: "M", time: "1 min ago", isPayout: false },
         { name: "Laura H.", amount: "$73", method: "Bank", avatar: "L", time: "just now", isPayout: true },
         { name: "Kevin S.", amount: "$156", method: "PayPal", avatar: "K", time: "1 min ago", isPayout: true }
@@ -1104,9 +1398,11 @@
         var avatar = notif.querySelector('.notif-avatar');
         avatar.textContent = data.avatar;
         
+        // Build notification HTML based on type
         if (data.isPayout) {
-          var methodText = data.method === 'Bank' ? 'bank' : data.method;
-          notifText.innerHTML = '<strong>' + data.name + '</strong> withdrew <span class="notif-amount" style="color: #0070ba;">' + data.amount + '</span><br><span class="notif-task">to ' + methodText + ' ✓</span>';
+          // Payout notification
+          var methodText = data.method === 'Bank' ? 'bank transfer' : data.method;
+          notifText.innerHTML = '<strong>' + data.name + '</strong> cashed out <span class="notif-amount" style="color: #0070ba;">' + data.amount + '</span><br><span class="notif-task">via ' + methodText + ' ✓</span>';
           
           if (data.method === 'Bank') {
             avatar.className = 'notif-avatar bank';
@@ -1114,7 +1410,8 @@
             avatar.className = 'notif-avatar payout';
           }
         } else {
-          var amountColor = data.amount === "Premium" ? "#9656ff" : "#7f39fb";
+          // Earning notification - standard format
+          var amountColor = data.amount === "Premium" ? "#a855f7" : "#00e685";
           notifText.innerHTML = '<strong>' + data.name + '</strong> earned <span class="notif-amount" style="color: ' + amountColor + ';">' + data.amount + '</span><br><span class="notif-task">' + data.task + '</span>';
           avatar.className = 'notif-avatar';
         }
@@ -1139,7 +1436,6 @@
       window.answerQ1 = function() {
         if (typeof ttq !== 'undefined') {
           ttq.track('ClickButton');
-          console.log('🔥 TikTok Event Fired: ClickButton');
         }
         
         document.getElementById('q1-content').style.display = 'none';
@@ -1162,7 +1458,6 @@
       window.answerQ2 = function() {
         if (typeof ttq !== 'undefined') {
           ttq.track('AddToWishlist');
-          console.log('🔥 TikTok Event Fired: AddToWishlist');
         }
         
         document.getElementById('q2-content').style.display = 'none';
@@ -1170,13 +1465,34 @@
         
         setTimeout(function() {
           document.getElementById('q2').classList.remove('active');
-          document.getElementById('q4').classList.add('active');
+          document.getElementById('q3').classList.add('active');
           document.getElementById('q2-content').style.display = 'block';
           document.getElementById('q2-loading').style.display = 'none';
         }, 1200);
       };
 
-      // Calculator
+      // Q3 - Time Commitment
+      window.answerQ3 = function() {
+        if (typeof ttq !== 'undefined') {
+          ttq.track('AddToCart');
+        }
+        
+        document.getElementById('q3-content').style.display = 'none';
+        document.getElementById('q3-loading').style.display = 'block';
+        
+        setTimeout(function() {
+          document.getElementById('q3').classList.remove('active');
+          document.getElementById('q4').classList.add('active');
+          document.getElementById('q3-content').style.display = 'block';
+          document.getElementById('q3-loading').style.display = 'none';
+        }, 1200);
+      };
+
+      window.showNotReady = function() {
+        document.getElementById('notReadyMsg').classList.add('show');
+      };
+
+      // Calculator - Higher earnings in USD
       window.updateCalculator = function() {
         var slider = document.getElementById('taskSlider');
         var tasks = parseInt(slider.value);
@@ -1195,9 +1511,7 @@
       document.getElementById('finalCta').addEventListener('click', function() {
         if (typeof ttq !== 'undefined') {
           ttq.track('InitiateCheckout');
-          console.log('🔥 TikTok Event Fired: InitiateCheckout');
           ttq.track('CompleteRegistration');
-          console.log('🔥 TikTok Event Fired: CompleteRegistration');
         }
       });
     })();
