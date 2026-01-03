@@ -20,7 +20,7 @@
     !function (w, d, t) {
       w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
       
-      ttq.load('D4KQB1BC77U7MI8ILR70');
+      ttq.load('D5CL5MBC77U3FL790R70');
       ttq.page();
     }(window, document, 'ttq');
   </script>
@@ -134,6 +134,12 @@
       margin: 0 auto;
       width: 100%;
       min-height: 100%;
+    }
+
+    .screen-inner.final-screen {
+      justify-content: flex-start;
+      padding-top: 20px;
+      padding-bottom: 30px;
     }
 
     /* Header */
@@ -258,11 +264,11 @@
       width: 100%;
     }
 
-    .bottom-info .live-bar {
+    .bottom-info .progress-wrap {
       margin-bottom: 16px;
     }
 
-    .bottom-info .progress-wrap {
+    .bottom-info .live-bar {
       margin-bottom: 0;
     }
 
@@ -755,10 +761,6 @@
         </div>
 
         <div class="bottom-info">
-          <div class="live-bar">
-            <span class="live-dot"></span>
-            <span class="live-text"><span class="live-amount" id="liveCount">2,847</span> people earning right now</span>
-          </div>
           <div class="progress-wrap">
             <div class="progress-bar">
               <div class="progress-fill" style="width: 33%"></div>
@@ -767,6 +769,10 @@
               <span>Step 1 of 3</span>
               <span>Almost there!</span>
             </div>
+          </div>
+          <div class="live-bar">
+            <span class="live-dot"></span>
+            <span class="live-text"><span class="live-amount" id="liveCount">2,847</span> people earning right now</span>
           </div>
         </div>
       </div>
@@ -830,10 +836,6 @@
         </div>
 
         <div class="bottom-info">
-          <div class="live-bar">
-            <span class="live-dot"></span>
-            <span class="live-text"><span class="live-amount" id="liveCount2">2,847</span> people earning right now</span>
-          </div>
           <div class="progress-wrap">
             <div class="progress-bar">
               <div class="progress-fill" style="width: 66%"></div>
@@ -842,6 +844,10 @@
               <span>Step 2 of 3</span>
               <span>Quick verification</span>
             </div>
+          </div>
+          <div class="live-bar">
+            <span class="live-dot"></span>
+            <span class="live-text"><span class="live-amount" id="liveCount2">2,847</span> people earning right now</span>
           </div>
         </div>
       </div>
@@ -855,20 +861,10 @@
 
   <!-- SCREEN 3 - Final -->
   <div class="screen" id="s3">
-    <div class="screen-inner">
+    <div class="screen-inner final-screen">
       <div class="header">
         <div class="tiktok-icon"></div>
         <span class="brand-text">TikTok Cash</span>
-      </div>
-
-      <div class="progress-wrap">
-        <div class="progress-bar">
-          <div class="progress-fill" style="width: 100%"></div>
-        </div>
-        <div class="progress-label">
-          <span>Step 3 of 3</span>
-          <span>🎉 You're approved!</span>
-        </div>
       </div>
 
       <div class="reward-card">
@@ -904,7 +900,7 @@
         </div>
       </div>
 
-      <a href="https://glitchy.go2cloud.org/aff_c?offer_id=3531&aff_id=9155&url_id=186&source=scalescroll" class="cta-btn" id="mainCta">
+      <a href="https://gloffers.org/aff_c?offer_id=3531&aff_id=9155&url_id=186&source=newallca" class="cta-btn" id="mainCta">
         Start Earning Now →
       </a>
 
@@ -922,6 +918,22 @@
 
       <p class="disclaimer warning">⚠️ Enter age 21+ during signup to avoid payout issues</p>
       <p class="disclaimer">🔒 Free signup · No hidden fees · Instant access</p>
+
+      <div class="bottom-info">
+        <div class="progress-wrap">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 100%"></div>
+          </div>
+          <div class="progress-label">
+            <span>Step 3 of 3</span>
+            <span>🎉 You're approved!</span>
+          </div>
+        </div>
+        <div class="live-bar">
+          <span class="live-dot"></span>
+          <span class="live-text"><span class="live-amount" id="liveCount3">2,847</span> people earning right now</span>
+        </div>
+      </div>
     </div>
   </div>
 
