@@ -326,14 +326,14 @@
       background: linear-gradient(135deg, rgba(255, 59, 92, 0.2) 0%, rgba(0, 242, 234, 0.1) 100%);
       border-radius: 12px;
       flex-shrink: 0;
-      font-size: 24px;
-      line-height: 1;
-      text-align: center;
-      padding-top: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .option-icon span {
-      display: inline-block;
+    .option-icon svg {
+      width: 24px;
+      height: 24px;
     }
 
     .option-content {
@@ -745,7 +745,12 @@
 
         <div class="options-grid">
           <div class="option-card" onclick="nextScreen(1)">
-            <div class="option-icon"><span>🔥</span></div>
+            <div class="option-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#ff3b5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                <path d="M8 12l3 3 5-6"/>
+              </svg>
+            </div>
             <div class="option-content">
               <div class="option-title">Yes, show me how!</div>
               <div class="option-desc">I want to start earning today</div>
@@ -753,7 +758,12 @@
             <span class="option-arrow">→</span>
           </div>
           <div class="option-card" onclick="nextScreen(1)">
-            <div class="option-icon"><span>🤔</span></div>
+            <div class="option-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00f2ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4M12 8h.01"/>
+              </svg>
+            </div>
             <div class="option-content">
               <div class="option-title">Tell me more</div>
               <div class="option-desc">How does this actually work?</div>
@@ -801,7 +811,11 @@
 
         <div class="options-grid">
           <div class="option-card" onclick="nextScreen(2)">
-            <div class="option-icon"><span>✅</span></div>
+            <div class="option-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00f2ea" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
             <div class="option-content">
               <div class="option-title">I'm 18-24</div>
               <div class="option-desc">Highest earning potential</div>
@@ -809,7 +823,11 @@
             <span class="option-arrow">→</span>
           </div>
           <div class="option-card" onclick="nextScreen(2)">
-            <div class="option-icon"><span>✅</span></div>
+            <div class="option-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00f2ea" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
             <div class="option-content">
               <div class="option-title">I'm 25-34</div>
               <div class="option-desc">Great earning potential</div>
@@ -817,7 +835,11 @@
             <span class="option-arrow">→</span>
           </div>
           <div class="option-card" onclick="nextScreen(2)">
-            <div class="option-icon"><span>✅</span></div>
+            <div class="option-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00f2ea" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
             <div class="option-content">
               <div class="option-title">I'm 35+</div>
               <div class="option-desc">You qualify!</div>
@@ -825,7 +847,13 @@
             <span class="option-arrow">→</span>
           </div>
           <div class="option-card disabled" onclick="showError()">
-            <div class="option-icon"><span>🚫</span></div>
+            <div class="option-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#ff3b5c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="15" y1="9" x2="9" y2="15"/>
+                <line x1="9" y1="9" x2="15" y2="15"/>
+              </svg>
+            </div>
             <div class="option-content">
               <div class="option-title">I'm under 18</div>
               <div class="option-desc">Not eligible</div>
