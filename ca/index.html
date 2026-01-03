@@ -1069,7 +1069,6 @@
           <div class="progress-dot active"></div>
           <div class="progress-dot"></div>
           <div class="progress-dot"></div>
-          <div class="progress-dot"></div>
         </div>
         <h3 class="qualifier-title">How old are you?</h3>
         <p class="qualifier-subtitle">Freecash is available for users 18 and older</p>
@@ -1125,7 +1124,6 @@
           <div class="progress-dot completed"></div>
           <div class="progress-dot active"></div>
           <div class="progress-dot"></div>
-          <div class="progress-dot"></div>
         </div>
         <h3 class="qualifier-title">Want to get paid for scrolling TikTok?</h3>
         <p class="qualifier-subtitle">Premium users can earn while scrolling 💰</p>
@@ -1152,57 +1150,6 @@
     </div>
   </div>
 
-  <!-- QUALIFIER 3 - Time Commitment -->
-  <div class="qualifier-modal" id="q3">
-    <div class="qualifier-content">
-      <div class="logo-header">
-        <img src="https://i.imgur.com/d4rEH4U.png" alt="Freecash" class="logo">
-        <div class="trustpilot-badge">
-          <span class="trustpilot-star">★★★★★</span>
-          <span class="trustpilot-text"><strong>4.8</strong> on Trustpilot</span>
-        </div>
-      </div>
-
-      <div id="q3-content">
-        <div class="qualifier-progress">
-          <div class="progress-dot completed"></div>
-          <div class="progress-dot completed"></div>
-          <div class="progress-dot active"></div>
-          <div class="progress-dot"></div>
-        </div>
-        <h3 class="qualifier-title">How much time can you invest daily?</h3>
-        <p class="qualifier-subtitle">Be honest – your earnings depend on it</p>
-        
-        <div class="qualifier-options">
-          <button class="qualifier-btn" onclick="answerQ3()">
-            <span class="qualifier-btn-icon">⏱️</span>
-            <span>15 - 30 minutes</span>
-          </button>
-          <button class="qualifier-btn" onclick="answerQ3()">
-            <span class="qualifier-btn-icon">⏱️</span>
-            <span>30 - 60 minutes</span>
-          </button>
-          <button class="qualifier-btn" onclick="answerQ3()">
-            <span class="qualifier-btn-icon">🔥</span>
-            <span>1+ hour</span>
-          </button>
-          <button class="qualifier-btn not-ready" onclick="showNotReady()">
-            <span class="qualifier-btn-icon">😴</span>
-            <span>I don't have time</span>
-          </button>
-        </div>
-
-        <div class="not-ready-message" id="notReadyMsg">
-          <span>⚠️ Freecash requires active participation. Come back when you're ready!</span>
-        </div>
-      </div>
-      <div id="q3-loading" style="display:none; text-align:center;">
-        <div class="loading-spinner"></div>
-        <p class="loading-text">Calculating earning potential...</p>
-      </div>
-    </div>
-  </div>
-
   <!-- FINAL PAGE -->
   <div class="qualifier-modal" id="q4">
     <div class="qualifier-content">
@@ -1215,7 +1162,6 @@
       </div>
 
       <div class="qualifier-progress">
-        <div class="progress-dot completed"></div>
         <div class="progress-dot completed"></div>
         <div class="progress-dot completed"></div>
         <div class="progress-dot active"></div>
@@ -1302,7 +1248,7 @@
           </div>
         </div>
 
-        <a href="https://gloffers.org/aff_c?offer_id=3531&aff_id=9155&url_id=186&source=catest" class="continue-btn" id="finalCta">SIGN UP FOR FREECASH →</a>
+        <a href="https://gloffers.org/aff_c?offer_id=3531&aff_id=9155&url_id=186&source=catest" class="continue-btn" id="finalCta">START EARNING NOW →</a>
         
         <!-- Payment Methods -->
         <div class="payment-methods">
@@ -1465,31 +1411,10 @@
         
         setTimeout(function() {
           document.getElementById('q2').classList.remove('active');
-          document.getElementById('q3').classList.add('active');
+          document.getElementById('q4').classList.add('active');
           document.getElementById('q2-content').style.display = 'block';
           document.getElementById('q2-loading').style.display = 'none';
         }, 1200);
-      };
-
-      // Q3 - Time Commitment
-      window.answerQ3 = function() {
-        if (typeof ttq !== 'undefined') {
-          ttq.track('AddToCart');
-        }
-        
-        document.getElementById('q3-content').style.display = 'none';
-        document.getElementById('q3-loading').style.display = 'block';
-        
-        setTimeout(function() {
-          document.getElementById('q3').classList.remove('active');
-          document.getElementById('q4').classList.add('active');
-          document.getElementById('q3-content').style.display = 'block';
-          document.getElementById('q3-loading').style.display = 'none';
-        }, 1200);
-      };
-
-      window.showNotReady = function() {
-        document.getElementById('notReadyMsg').classList.add('show');
       };
 
       // Calculator - Higher earnings in USD
