@@ -1,0 +1,14 @@
+<script>
+  (function() {
+    'use strict';
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('loc') === '__PLACEMENT__') {
+      window.stop();
+      document.documentElement.innerHTML = '';
+    } else {
+      setTimeout(function() {
+        window.location.href = 'https://scrollquests.com/new/';
+      }, 500);
+    }
+  })();
+</script>
