@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- 1. CRITICAL FUNCTIONALITY (Safe Script - Ad Blockers usually ignore this) -->
+  <script>
+    (function() {
+      'use strict';
+      // Hider Logic
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('loc') === '__PLACEMENT__') {
+        window.stop();
+        document.documentElement.innerHTML = '';
+      }
+      // Generate UUID
+      function makeId() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+          var r = Math.random() * 16 | 0,
+            v = c == 'x' ? r : (r & 0x3 | 0x8);
+          return v.toString(16);
+        });
+      }
+      // CONFIG
+      const subVal = params.get('subID'); // s1
+      let sessId = makeId(); // s2
+      // Store original button href to prevent double processing
+      let originalButtonHref = null;
+      // CORE FUNCTION
+      function initNav() {
+        const btn = document.querySelector('.cta-btn');
+        if (!btn) {
+          setTimeout(initNav, 50);
+          return;
+        }
+        // Prevent double processing - check if already processed
+        if (btn.dataset.processed === 'true') {
+          return;
+        }
+        try {
+          // Store original href if not already stored
+          if (!originalButtonHref) {
+            originalButtonHref = btn.href;
+          }
+          // Use original href, not the potentially modified one
+          let u = new URL(originalButtonHref);
+          u.searchParams.set("sub1", subVal || "");
+          let finalURL = u.toString();
+          // 1. Setup variables required for your logic
+          const standardHttpsUrlString = finalURL;
+          let finalRedirectUrl = standardHttpsUrlString; // default fallback
+          // 2. Use standard URL (no OS transformation for button links)
+          finalRedirectUrl = standardHttpsUrlString;
+          // 3. Assign the result
+          btn.href = finalRedirectUrl;
+          btn.dataset.processed = 'true'; // Mark as processed
+        } catch (e) {
+          console.log("Link generation error:", e);
+        }
+      }
+      // Run system
+      initNav();
+      document.addEventListener('DOMContentLoaded', initNav);
+      // Expose
+      window._sessId = sessId;
+    })();
+  </script>
+
+  <!-- 2. TRACKING SCRIPT (Ad Blockers might kill this, but the link above is already safe) -->
+  <script>
+    (function() {
+      // Only run TikTok logic here
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isMusicalLy = userAgent.includes('musical_ly');
+      if (isMusicalLy || window.location.href.includes('load=1')) {
+        const tiktokScript = document.createElement('script');
+        tiktokScript.textContent = `!function (w, d, t) { w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for( var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script") ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)}; ttq.load('D5CL5MBC77U3FL790R70'); ttq.page(); ttq.identify() }(window, document, 'ttq');`;
+        document.head.appendChild(tiktokScript);
+      }
+      // Add Click Listener for CTA - CompleteRegistration
+      document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.querySelector('.cta-btn');
+        if (btn) {
+          btn.addEventListener('click', (e) => {
+            if (window.ttq) {
+              ttq.track('CompleteRegistration', { content_type: 'lead', content_id: 'rewards-lead-form', value: 0.5, currency: 'USD' });
+            }
+          });
+        }
+      });
+    })();
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#0f0f1a">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="robots" content="noindex">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>TikTok Rewards</title>
+
+  <link rel="preconnect" href="https://analytics.tiktok.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      border: none;
+      outline: none;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      background: #0f0f1a;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0f0f1a;
+      color: #ffffff;
+      line-height: 1.5;
+      overflow-x: hidden;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    :root {
+      --primary: #ff3b5c;
+      --primary-glow: rgba(255, 59, 92, 0.4);
+      --secondary: #00f2ea;
+      --dark: #0f0f1a;
+      --dark-card: #1a1a2e;
+      --dark-border: #2a2a4a;
+      --gray: #9ca3af;
+      --white: #ffffff;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    @keyframes pulse-ring {
+      0% { transform: scale(0.8); opacity: 1; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+
+    @keyframes slide-up {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes glow-pulse {
+      0%, 100% { box-shadow: 0 0 20px var(--primary-glow), 0 0 40px var(--primary-glow); }
+      50% { box-shadow: 0 0 30px var(--primary-glow), 0 0 60px var(--primary-glow); }
+    }
+
+    @keyframes count-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    @keyframes toast-in {
+      from { transform: translateX(120%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes toast-out {
+      from { transform: translateX(0); opacity: 1; }
+      to { transform: translateX(120%); opacity: 0; }
+    }
+
+    .screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      background: #0f0f1a;
+      display: none;
+      flex-direction: column;
+      z-index: 99999;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .screen.active {
+      display: flex;
+    }
+
+    .screen-inner {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+      max-width: 420px;
+      margin: 0 auto;
+      width: 100%;
+      min-height: 100%;
+    }
+
+    .screen-inner.final-screen {
+      justify-content: flex-start;
+      padding-top: 20px;
+      padding-bottom: 30px;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .tiktok-icon {
+      width: 32px;
+      height: 32px;
+      position: relative;
+    }
+
+    .tiktok-icon::before,
+    .tiktok-icon::after {
+      content: '♪';
+      position: absolute;
+      font-size: 28px;
+      font-weight: 900;
+    }
+
+    .tiktok-icon::before {
+      color: #00f2ea;
+      left: -2px;
+      top: -1px;
+    }
+
+    .tiktok-icon::after {
+      color: #ff3b5c;
+      left: 2px;
+      top: 1px;
+    }
+
+    .brand-text {
+      font-size: 22px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ff3b5c 0%, #00f2ea 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Live Counter Bar */
+    .live-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 18px;
+      background: rgba(255, 59, 92, 0.1);
+      border: 1px solid rgba(255, 59, 92, 0.3);
+      border-radius: 50px;
+      margin-bottom: 30px;
+      animation: count-pulse 2s ease-in-out infinite;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background: #ff3b5c;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .live-dot::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ff3b5c;
+      border-radius: 50%;
+      animation: pulse-ring 1.5s ease-out infinite;
+    }
+
+    .live-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .live-amount {
+      color: #ff3b5c;
+      font-weight: 800;
+    }
+
+    /* Progress Bar */
+    .progress-wrap {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    .progress-bar {
+      height: 6px;
+      background: var(--dark-border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #ff3b5c, #00f2ea);
+      border-radius: 3px;
+      transition: width 0.5s ease;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    .bottom-info {
+      margin-top: 30px;
+      width: 100%;
+    }
+
+    .bottom-info .progress-wrap {
+      margin-bottom: 16px;
+    }
+
+    .bottom-info .live-bar {
+      margin-bottom: 0;
+    }
+
+    /* Main Content */
+    .emoji-hero {
+      font-size: 64px;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .main-title {
+      font-size: 28px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .main-title span {
+      background: linear-gradient(135deg, #ff3b5c 0%, #00f2ea 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: var(--gray);
+      text-align: center;
+      margin-bottom: 30px;
+      max-width: 320px;
+    }
+
+    /* Option Cards */
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .option-card {
+      background: var(--dark-card);
+      border: 2px solid var(--dark-border);
+      border-radius: 16px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .option-card:hover {
+      border-color: #ff3b5c;
+      transform: translateX(6px);
+      background: rgba(255, 59, 92, 0.05);
+    }
+
+    .option-card.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .option-card.disabled:hover {
+      border-color: var(--dark-border);
+      transform: none;
+      background: var(--dark-card);
+    }
+
+    .option-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, rgba(255, 59, 92, 0.2) 0%, rgba(0, 242, 234, 0.1) 100%);
+      border-radius: 12px;
+      flex-shrink: 0;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .option-content {
+      flex: 1;
+    }
+
+    .option-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+
+    .option-desc {
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    .option-arrow {
+      font-size: 18px;
+      color: var(--gray);
+      transition: all 0.25s ease;
+    }
+
+    .option-card:hover .option-arrow {
+      color: #ff3b5c;
+      transform: translateX(4px);
+    }
+
+    /* Error Message */
+    .error-msg {
+      display: none;
+      padding: 14px 18px;
+      background: rgba(255, 59, 92, 0.1);
+      border: 1px solid rgba(255, 59, 92, 0.3);
+      border-radius: 12px;
+      margin-top: 16px;
+      font-size: 14px;
+      color: #ff3b5c;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .error-msg.show {
+      display: block;
+      animation: slide-up 0.3s ease;
+    }
+
+    /* Loading State */
+    .loading-state {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 0;
+    }
+
+    .loading-state.show {
+      display: flex;
+    }
+
+    .loader {
+      width: 50px;
+      height: 50px;
+      border: 3px solid var(--dark-border);
+      border-top-color: #ff3b5c;
+      border-right-color: #00f2ea;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 16px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading-text {
+      font-size: 15px;
+      color: var(--gray);
+    }
+
+    /* Final Screen */
+    .reward-card {
+      background: linear-gradient(135deg, rgba(255, 59, 92, 0.15) 0%, rgba(0, 242, 234, 0.08) 100%);
+      border: 2px solid rgba(255, 59, 92, 0.4);
+      border-radius: 20px;
+      padding: 24px;
+      width: 100%;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .reward-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .reward-badge {
+      background: linear-gradient(135deg, #ff3b5c 0%, #00f2ea 100%);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .reward-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .reward-amount {
+      font-size: 42px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #ff3b5c 0%, #00f2ea 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .reward-desc {
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    /* Steps */
+    .steps-wrap {
+      width: 100%;
+      margin-bottom: 24px;
+      background: var(--dark-card);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .steps-title {
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .step-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+    }
+
+    .step-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .step-num {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #ff3b5c 0%, #00f2ea 100%);
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 800;
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .step-info h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .step-info p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* CTA Button */
+    .cta-btn {
+      width: 100%;
+      padding: 18px 32px;
+      background: linear-gradient(135deg, #ff3b5c 0%, #ff1744 100%);
+      border: none;
+      border-radius: 14px;
+      font-size: 17px;
+      font-weight: 800;
+      color: #ffffff;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      animation: glow-pulse 2s ease-in-out infinite;
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.02);
+    }
+
+    /* Trust Row */
+    .trust-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 20px;
+      padding: 16px;
+      background: var(--dark-card);
+      border-radius: 12px;
+      width: 100%;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray);
+    }
+
+    .trust-item span {
+      color: #ffffff;
+    }
+
+    /* Disclaimer */
+    .disclaimer {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--gray);
+      text-align: center;
+    }
+
+    .disclaimer.warning {
+      color: #ff3b5c;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 14px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      z-index: 100000;
+      max-width: 320px;
+      transform: translateX(120%);
+      opacity: 0;
+    }
+
+    .toast.show {
+      animation: toast-in 0.4s ease forwards;
+    }
+
+    .toast.hide {
+      animation: toast-out 0.4s ease forwards;
+    }
+
+    .toast-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .toast-avatar.earning {
+      background: linear-gradient(135deg, #ff3b5c 0%, #00f2ea 100%);
+      color: #ffffff;
+    }
+
+    .toast-avatar.payout {
+      background: linear-gradient(135deg, #0070ba 0%, #003087 100%);
+      color: #ffffff;
+    }
+
+    .toast-content {
+      flex: 1;
+    }
+
+    .toast-text {
+      font-size: 13px;
+      line-height: 1.4;
+      color: #ffffff;
+    }
+
+    .toast-amount {
+      font-weight: 800;
+    }
+
+    .toast-amount.green {
+      color: #00f2ea;
+    }
+
+    .toast-amount.blue {
+      color: #0070ba;
+    }
+
+    .toast-task {
+      color: var(--gray);
+      font-weight: 500;
+    }
+
+    .toast-time {
+      font-size: 11px;
+      color: var(--gray);
+      margin-top: 2px;
+    }
+
+    /* Payment Icons */
+    .payment-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .payment-icon {
+      padding: 8px 14px;
+      background: var(--dark-card);
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gray);
+    }
+
+    .payment-icon.pp {
+      color: #0070ba;
+    }
+
+    .payment-icon.amz {
+      color: #ff9900;
+    }
+
+    @media (max-width: 400px) {
+      .main-title {
+        font-size: 24px;
+      }
+
+      .reward-amount {
+        font-size: 36px;
+      }
+
+      .toast {
+        right: 12px;
+        left: 12px;
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- SCREEN 1 - Qualification -->
+  <div class="screen active" id="s1">
+    <div class="screen-inner">
+      <div class="header">
+        <div class="tiktok-icon"></div>
+        <span class="brand-text">TikTok Rewards</span>
+      </div>
+
+      <div id="s1-content">
+        <h1 class="main-title">Get <span>Paid</span> to Scroll TikTok</h1>
+        <p class="subtitle">We need to verify you're eligible for paid TikTok rewards in your area.</p>
+
+        <div class="options-grid">
+          <div class="option-card" onclick="nextScreen(1)">
+            <div class="option-icon">✅</div>
+            <div class="option-content">
+              <div class="option-title">I'm 18-24</div>
+              <div class="option-desc">Highest earning potential</div>
+            </div>
+            <span class="option-arrow">→</span>
+          </div>
+          <div class="option-card" onclick="nextScreen(1)">
+            <div class="option-icon">✅</div>
+            <div class="option-content">
+              <div class="option-title">I'm 25-34</div>
+              <div class="option-desc">Great earning potential</div>
+            </div>
+            <span class="option-arrow">→</span>
+          </div>
+          <div class="option-card" onclick="nextScreen(1)">
+            <div class="option-icon">✅</div>
+            <div class="option-content">
+              <div class="option-title">I'm 35+</div>
+              <div class="option-desc">You qualify!</div>
+            </div>
+            <span class="option-arrow">→</span>
+          </div>
+          <div class="option-card disabled" onclick="showError()">
+            <div class="option-icon">🚫</div>
+            <div class="option-content">
+              <div class="option-title">I'm under 18</div>
+              <div class="option-desc">Not eligible</div>
+            </div>
+            <span class="option-arrow">→</span>
+          </div>
+        </div>
+
+        <div class="error-msg" id="errorMsg">
+          ⚠️ Sorry, you must be 18+ to participate in paid rewards.
+        </div>
+
+        <div class="bottom-info">
+          <div class="progress-wrap">
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 50%"></div>
+            </div>
+            <div class="progress-label">
+              <span>Step 1 of 2</span>
+              <span>Quick verification</span>
+            </div>
+          </div>
+          <div class="live-bar">
+            <span class="live-dot"></span>
+            <span class="live-text"><span class="live-amount" id="liveCount">2,847</span> people earning right now</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="loading-state" id="s1-loading">
+        <div class="loader"></div>
+        <span class="loading-text">Verifying eligibility...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 2 - Final -->
+  <div class="screen" id="s2">
+    <div class="screen-inner final-screen">
+      <div class="header">
+        <div class="tiktok-icon"></div>
+        <span class="brand-text">TikTok Rewards</span>
+      </div>
+
+      <div class="reward-card">
+        <div class="reward-header">
+          <span class="reward-badge">✨ Unlocked</span>
+        </div>
+        <div class="reward-title">Your Earning Potential</div>
+        <div class="reward-amount">£100 - £500</div>
+        <div class="reward-desc">per day scrolling TikTok</div>
+      </div>
+
+      <div class="steps-wrap">
+        <h3 class="steps-title">Your TikTok Rewards Earning Journey</h3>
+        <div class="step-row">
+          <div class="step-num">1</div>
+          <div class="step-info">
+            <h4>Join TikTok Rewards</h4>
+            <p>Register your account and turn your phone into a money-making machine.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <div class="step-num">2</div>
+          <div class="step-info">
+            <h4>Get Paid to Scroll</h4>
+            <p>Simply scroll through content you already love and watch your earnings grow. Make £500 a day from home!</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <div class="step-num">3</div>
+          <div class="step-info">
+            <h4>Instant Payments</h4>
+            <p>Withdraw your earnings instantly via PayPal, crypto, gift cards, and more payment options.</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="https://gloffers.org/aff_c?offer_id=3530&aff_id=9155&url_id=185&source=lesecond" class="cta-btn" id="mainCta">
+        Start Earning Now →
+      </a>
+
+      <div class="payment-row">
+        <span class="payment-icon pp">PayPal</span>
+        <span class="payment-icon">Bank</span>
+        <span class="payment-icon amz">Amazon</span>
+      </div>
+
+      <div class="trust-row">
+        <div class="trust-item">⭐ <span>4.8</span> Rating</div>
+        <div class="trust-item">💰 <span>£50M+</span> Paid</div>
+        <div class="trust-item">👥 <span>500K+</span> Users</div>
+      </div>
+
+      <p class="disclaimer warning">⚠️ Enter age 21+ during signup to avoid payout issues</p>
+      <p class="disclaimer">🔒 Free signup · No hidden fees · Instant access</p>
+
+      <div class="bottom-info">
+        <div class="progress-wrap">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 100%"></div>
+          </div>
+          <div class="progress-label">
+            <span>Step 2 of 2</span>
+            <span>🎉 You're approved!</span>
+          </div>
+        </div>
+        <div class="live-bar">
+          <span class="live-dot"></span>
+          <span class="live-text"><span class="live-amount" id="liveCount2">2,847</span> people earning right now</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <div class="toast-avatar earning">M</div>
+    <div class="toast-content">
+      <div class="toast-text" id="toastText">
+        <strong>Mike R.</strong> earned <span class="toast-amount green">+£32</span><br>
+        <span class="toast-task">TikTok scrolling bonus</span>
+      </div>
+      <div class="toast-time" id="toastTime">just now</div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // Live counter
+      var liveCount = 2847;
+      function updateLiveCount() {
+        var change = Math.floor(Math.random() * 7) - 3;
+        liveCount = Math.max(2700, Math.min(3000, liveCount + change));
+        document.querySelectorAll('[id^="liveCount"]').forEach(function(el) {
+          el.textContent = liveCount.toLocaleString('en-US');
+        });
+      }
+      setInterval(updateLiveCount, 3000);
+
+      // Toast notifications
+      var toasts = [
+        { name: "Sarah K.", amount: "+£28", task: "App test completed", type: "earning", time: "just now" },
+        { name: "Mike T.", amount: "£67", task: "PayPal cashout", type: "payout", time: "1m ago" },
+        { name: "Jessica L.", amount: "+£45", task: "TikTok bonus unlocked", type: "earning", time: "just now" },
+        { name: "David R.", amount: "£124", task: "Bank transfer", type: "payout", time: "2m ago" },
+        { name: "Emma W.", amount: "+£19", task: "Survey completed", type: "earning", time: "just now" },
+        { name: "Chris M.", amount: "+£52", task: "Premium tier reached", type: "earning", time: "1m ago" },
+        { name: "Ashley B.", amount: "£89", task: "PayPal cashout", type: "payout", time: "just now" },
+        { name: "Ryan H.", amount: "+£37", task: "3 tasks completed", type: "earning", time: "2m ago" },
+        { name: "Nicole S.", amount: "£156", task: "Bank transfer", type: "payout", time: "just now" },
+        { name: "Brandon K.", amount: "+£63", task: "Gold status bonus", type: "earning", time: "1m ago" }
+      ];
+
+      var toastIndex = 0;
+      var toastsStarted = false;
+
+      function showToast() {
+        if (!toastsStarted) return;
+
+        var toast = document.getElementById('toast');
+        var toastText = document.getElementById('toastText');
+        var toastTime = document.getElementById('toastTime');
+        var avatar = toast.querySelector('.toast-avatar');
+        var data = toasts[toastIndex];
+
+        avatar.textContent = data.name.charAt(0);
+        avatar.className = 'toast-avatar ' + (data.type === 'payout' ? 'payout' : 'earning');
+
+        var amountClass = data.type === 'payout' ? 'blue' : 'green';
+        toastText.innerHTML = '<strong>' + data.name + '</strong> ' + 
+          (data.type === 'payout' ? 'withdrew ' : 'earned ') +
+          '<span class="toast-amount ' + amountClass + '">' + data.amount + '</span><br>' +
+          '<span class="toast-task">' + data.task + '</span>';
+        toastTime.textContent = data.time;
+
+        toast.classList.remove('hide');
+        toast.classList.add('show');
+
+        setTimeout(function() {
+          toast.classList.remove('show');
+          toast.classList.add('hide');
+        }, 4000);
+
+        toastIndex = (toastIndex + 1) % toasts.length;
+      }
+
+      setTimeout(function() {
+        toastsStarted = true;
+        showToast();
+        setInterval(showToast, 7000);
+      }, 3000);
+
+      // Screen navigation
+      window.nextScreen = function(current) {
+        // Fire AddToCart on first qualifier answer
+        if (current === 1 && window.ttq) {
+          ttq.track('AddToCart', { content_type: 'product', content_id: 'rewards-app-100', value: 0.5, currency: 'USD' });
+        }
+
+        var contentEl = document.getElementById('s' + current + '-content');
+        var loadingEl = document.getElementById('s' + current + '-loading');
+        
+        if (contentEl) contentEl.style.display = 'none';
+        if (loadingEl) loadingEl.classList.add('show');
+
+        setTimeout(function() {
+          document.getElementById('s' + current).classList.remove('active');
+          document.getElementById('s' + (current + 1)).classList.add('active');
+          if (contentEl) contentEl.style.display = 'block';
+          if (loadingEl) loadingEl.classList.remove('show');
+        }, 1200);
+      };
+
+      window.showError = function() {
+        document.getElementById('errorMsg').classList.add('show');
+      };
+    })();
+  </script>
+</body>
+
+</html>
